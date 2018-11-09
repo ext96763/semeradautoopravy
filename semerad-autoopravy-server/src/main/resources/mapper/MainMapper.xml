@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.semerad.autoopravy.mapper.MainRepository">
+
+    <!--/////////////////////////////////BASIC///////////////////////////////////////////////////////////////////////-->
+
+    <select id="getAllCustomers" resultMap="userResultMap">
+        SELECT *
+        FROM customers u
+        WHERE 1 = 1
+        ORDER BY u.user_id DESC
+    </select>
+
+    <select id="getAllCars" resultMap="carResultMap">
+        SELECT *
+        FROM cars c
+        WHERE 1 = 1
+        ORDER BY c.car_id DESC
+    </select>
+
+    <select id="getAllRepairs" resultMap="repairResultMap">
+        SELECT *
+        FROM repairs r
+        WHERE 1 = 1
+        ORDER BY r.repair_id DESC
+    </select>
+
+    <select id="getAllParts" resultMap="partResultMap">
+        SELECT *
+        FROM parts p
+        WHERE 1 = 1
+        ORDER BY p.part_id DESC
+    </select>
+
+
+    <!--//////////////////////Find user by parameters////////////////////////////////////////////////////////////////-->
+
+    <select id="getUserById" resultMap="userResultMap">
+        SELECT *
+        FROM customers u
+        WHERE 1 = 1
+              AND u.user_id = #{userId}
+        ORDER BY u.user_id DESC
+    </select>
+
+    <select id="getUserByName" resultMap="userResultMap">
+        SELECT * FROM customers u WHERE 1=1
+        <if test="userName != null">
+            <bind name="pattern" value="'%' + userName + '%'"/>
+            AND LOWER(u.user_name) LIKE LOWER(#{pattern})
+        </if>
+        ORDER BY u.user_id DESC
+    </select>
+
+    <select id="getUserByForeName" resultMap="userResultMap">
+        SELECT * FROM customers u WHERE 1=1
+        <if test="userForename != null">
+            <bind name="pattern" value="'%' + userForename + '%'"/>
+            AND LOWER(u.user_forename) LIKE LOWER(#{pattern})
+        </if>
+        ORDER BY u.user_id DESC
+    </select>
+
+    <select id="getUserByEmail" resultMap="userResultMap">
+        SELECT * FROM customers u WHERE 1=1
+        <if test="userEmail != null">
+            <bind name="pattern" value="'%' + userEmail + '%'"/>
+            AND LOWER(u.user_email) LIKE LOWER(#{pattern})
+        </if>
+        ORDER BY u.user_id DESC
+    </select>
+
+    <select id="getUserByBirthNumber" resultMap="userResultMap">
+        SELECT * FROM customers u WHERE 1=1
+        <if test="userRc != null">
+            AND u.user_rc = (#{userRc})
+        </if>
+        ORDER BY u.user_id DESC
+    </select>
+
+    <select id="getUserByPhoneNumber" resultMap="userResultMap">
+        SELECT * FROM customers u WHERE 1=1
+        <if test="userPhone != null">
+            AND u.user_phone = (#{userPhone})
+        </if>
+        ORDER BY u.user_id DESC
+    </select>
+
+
+    <!--///////////////////////////////////////User detail///////////////////////////////////////////////////////////-->
+
+    <select id="getUserDetailById" resultMap="userResultMap">
+        SELECT *
+        FROM customers u
+                 LEFT JOIN cars r ON u.user_id = r.car_user_id
+                 LEFT JOIN repairs c ON c.repair_user_id = u.user_id
+                 LEFT JOIN parts p ON p.part_user_id = u.user_id
+        WHERE 1 = 1 AND u.user_id = #{userId};
+    </select>
+
+    <insert id="insertUser" parameterType="com.semerad.autoopravy.model.Customer"
+            useGeneratedKeys="true" keyProperty="userId" keyColumn="user_id">
+        INSERT INTO customers (user_name, user_rc, user_detail, user_phone, user_email, user_forename)
+        VALUES (#{userName}, #{userRc}, #{userDetail}, #{userPhone}, #{userEmail}, #{userForeName})
+    </insert>
+
+    <update id="updateUser">
+        UPDATE customers
+        SET
+            user_name     = #{userName},
+            user_rc       = #{userRc},
+            user_detail   = #{userDetail},
+            user_phone    = #{userPhone},
+            user_email    = #{userEmail},
+            user_forename = #{userForeName}
+        WHERE user_id = #{userId}
+    </update>
+
+    <delete id="deleteUser">
+        DELETE FROM customers
+        WHERE user_id = #{userId}
+    </delete>
+
+
+    <!--///////////////////////////////////////Car detail////////////////////////////////////////////////////////////-->
+
+    <select id="getCarById" resultMap="carResultMap">
+        SELECT * FROM cars r WHERE 1=1
+        <if test="carId != null and carId != ''">
+            AND r.car_id = #{carId}
+        </if>
+        ORDER BY r.car_id DESC
+    </select>
+
+    <select id="getCarDetailById" resultMap="carResultMap">
+        SELECT *
+        FROM cars c LEFT JOIN repairs r ON c.car_user_id = r.repair_user_id
+            LEFT JOIN parts p ON c.car_user_id = p.part_user_id
+        WHERE 1 = 1 AND c.car_id = #{carId};
+    </select>
+
+    <insert id="insertCar" parameterType="com.semerad.autoopravy.model.Car"
+            useGeneratedKeys="true" keyProperty="carId" keyColumn="car_id">
+        INSERT INTO cars (win, spz, km, car_info, end_date_error, feature_repair_date, done_work, exist, buyed_parts, car_user_id, start_date_error)
+        VALUES (#{win}, #{spz}, #{km}, #{carInfo}, #{endDateError}, #{featureRepairDate}, #{doneWork}, #{exist},
+                        #{buyedParts}, #{carUserId}, #{startDateError})
+    </insert>
+
+    <update id="updateCar">
+        UPDATE cars
+        SET
+            win                 = #{win},
+            spz                 = #{spz},
+            km                  = #{km},
+            car_info            = #{carInfo},
+            end_date_error      = #{endDateError},
+            feature_repair_date = #{featureRepairDate},
+            done_work           = #{doneWork},
+            exist               = #{exist},
+            buyed_parts         = #{buyedParts},
+            car_user_id         = #{carUserId},
+            start_date_error    = #{startDateError}
+        WHERE car_id = #{carId}
+    </update>
+
+    <delete id="deleteCar">
+        DELETE FROM cars
+        WHERE car_id = #{carId}
+    </delete>
+
+    <!--///////////////////////////////////////Repair detail/////////////////////////////////////////////////////////-->
+
+    <select id="getRepairById" resultMap="repairResultMap">
+        SELECT * FROM repairs r WHERE 1=1
+        <if test="repairId != null and repairId != ''">
+            AND r.repair_id = #{repairId}
+        </if>
+        ORDER BY r.repair_id DESC
+    </select>
+
+    <select id="getRepairDetailById" resultMap="repairResultMap">
+        SELECT *
+        FROM repairs r LEFT JOIN parts p ON r.repair_user_id = p.part_user_id
+        WHERE 1 = 1 AND r.repair_id = #{repairId};
+    </select>
+
+    <insert id="insertRepair" parameterType="com.semerad.autoopravy.model.Repair"
+            useGeneratedKeys="true" keyProperty="repairId" keyColumn="repair_id">
+        INSERT INTO repairs (repairs, start_date_of_repair, end_date_of_repair, tech_check, oil, repair_user_id)
+        VALUES (#{repairs}, #{startOfRepair}, #{endOfRepair}, #{techCheck}, #{oil}, #{repairUserId})
+    </insert>
+
+    <update id="updateRepair">
+        UPDATE repairs
+        SET
+            car_id              = #{carId},
+            repairs             = #{repairs},
+            start_date_of_repair = #{startOfRepair},
+            end_date_of_repair   = #{endOfRepair},
+            tech_check          = #{techCheck},
+            oil                 = #{oil},
+            repair_user_id      = #{repairUserId}
+        WHERE repair_id = #{repairId}
+    </update>
+
+    <delete id="deleteRepair">
+        DELETE FROM repairs
+        WHERE repair_id = #{repairId}
+    </delete>
+
+
+    <!--///////////////////////////////////////Part detail///////////////////////////////////////////////////////////-->
+
+    <select id="getPartById" resultMap="partResultMap">
+        SELECT * FROM parts p WHERE 1=1
+        <if test="partId != null and partId != ''">
+            AND p.part_id = #{partId}
+        </if>
+        ORDER BY p.part_id DESC
+    </select>
+
+    <insert id="insertPart" parameterType="com.semerad.autoopravy.model.SparePart"
+            useGeneratedKeys="true" keyProperty="partId" keyColumn="part_id">
+        INSERT INTO parts (part_number, part_detail, repair_date, part_user_id, car_id, repair_id)
+        VALUES (#{partNumber}, #{partDetail}, #{repairDate}, #{partUserId}, #{carId}, #{repairId})
+    </insert>
+
+    <update id="updatePart">
+        UPDATE parts
+        SET
+            part_number  = #{partNumber},
+            part_detail  = #{partDetail},
+            repair_date  = #{repairDate},
+            part_user_id = #{partUserId},
+            car_id       = #{carId},
+            repair_id    = #{repairId}
+        WHERE part_id = #{partId}
+    </update>
+
+    <delete id="deletePart">
+        DELETE FROM parts
+        WHERE part_id = #{partId}
+    </delete>
+
+
+    <!--///////////////////////////////////////Result Maps///////////////////////////////////////////////////////////-->
+
+    <resultMap id="userResultMap" type="com.semerad.autoopravy.model.Customer">
+        <result property="userId" column="user_id"/>
+        <result property="userName" column="user_name"/>
+        <result property="userForeName" column="user_forename"/>
+        <result property="userRc" column="user_rc"/>
+        <result property="userDetail" column="user_detail"/>
+        <result property="userPhone" column="user_phone"/>
+        <result property="userEmail" column="user_email"/>
+        <collection property="cars" resultMap="carResultMap"/>
+    </resultMap>
+
+    <resultMap id="carResultMap" type="com.semerad.autoopravy.model.Car">
+        <result property="carId" column="car_id"/>
+        <result property="carUserId" column="car_user_id"/>
+        <result property="win" column="win"/>
+        <result property="spz" column="spz"/>
+        <result property="km" column="km"/>
+        <result property="carInfo" column="car_info"/>
+        <result property="startDateError" column="start_date_error" javaType="java.util.Date"/>
+        <result property="endDateError" column="end_date_error" javaType="java.util.Date"/>
+        <result property="featureRepairDate" column="feature_repair_date" javaType="java.util.Date"/>
+        <result property="doneWork" column="done_work"/>
+        <result property="exist" column="exist"/>
+        <result property="buyedParts" column="buyed_parts"/>
+        <collection property="repairs" resultMap="repairResultMap"/>
+    </resultMap>
+
+    <resultMap id="repairResultMap" type="com.semerad.autoopravy.model.Repair">
+        <result property="repairId" column="repair_id"/>
+        <result property="repairUserId" column="repair_user_id"/>
+        <result property="repairs" column="repairs"/>
+        <result property="startOfRepair" column="start_date_of_repair" javaType="java.util.Date"/>
+        <result property="endOfRepair" column="end_date_of_repair" javaType="java.util.Date"/>
+        <result property="techCheck" column="tech_check"/>
+        <result property="oil" column="oil"/>
+        <collection property="parts" resultMap="partResultMap"/>
+    </resultMap>
+
+    <resultMap id="partResultMap" type="com.semerad.autoopravy.model.SparePart">
+        <result property="partId" column="part_id"/>
+        <result property="partUserId" column="part_user_id"/>
+        <result property="partNumber" column="part_number"/>
+        <result property="partDetail" column="part_detail"/>
+        <result property="repairDate" column="repair_date" javaType="java.util.Date"/>
+    </resultMap>
+
+</mapper>
