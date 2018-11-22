@@ -1,18 +1,18 @@
 <div class="header" id="mainHeader">
-<nav class="navbar navbar-dark bg-dark mb-5">
-  <a class="navbar-brand" href="/">CRM</a>
-  <div class="navbar-expand mr-auto">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Domu</a>
-      <a class="nav-item nav-link" href="#">Uzivatele</a>
-      <a class="nav-item nav-link" href="#">Auta</a>
-      <a class="nav-item nav-link" href="#">Opravy</a>
-      <a class="nav-item nav-link" href="#">Dily</a>
+  <nav class="navbar navbar-dark bg-dark mb-5">
+    <a class="navbar-brand" [routerLink]="[ '/info' ]" routerLinkActive="active">CRM</a>
+    <div class="navbar-expand mr-auto">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" [routerLink]="[ '/news' ]">Ukoly</a>
+        <a class="nav-item nav-link" [routerLink]="[ '/customers' ]">Uzivatele</a>
+        <a class="nav-item nav-link" [routerLink]="[ '/cars' ]">Auta</a>
+        <a class="nav-item nav-link" [routerLink]="[ '/repairs' ]">Opravy</a>
+        <a class="nav-item nav-link" [routerLink]="[ '/parts' ]">Dily</a>
+      </div>
     </div>
-  </div>
-  <div class="navbar-expand ml-auto navbar-nav">
-    <div class="navbar-nav">
+    <div class="navbar-expand ml-auto navbar-nav">
+      <div class="navbar-nav">
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>

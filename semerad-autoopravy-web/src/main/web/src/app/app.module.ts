@@ -4,16 +4,22 @@ import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
+import { RouterModule } from '@angular/router';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ScrollEventModule } from 'ngx-scroll-event';
 
+import { CarDetailComponent } from './components/car-detail/car-detail.component';
+
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CarDetailComponent
   ],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    RouterModule,
+    BrowserModule,
     UiModule,
     ScrollEventModule,
     ProgressbarModule.forRoot()

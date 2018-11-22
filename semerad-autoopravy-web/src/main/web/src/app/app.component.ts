@@ -26,6 +26,7 @@ export class AppComponent {
     console.log('scrollPercentRounded', scrollPercentRounded);
     this.progress = scrollPercentRounded;
   }
+
 }
 
 export function getProgressbarConfig(): ProgressbarConfig {
