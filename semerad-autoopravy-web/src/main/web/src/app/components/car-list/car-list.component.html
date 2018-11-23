@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-sm-4" *ngFor="let car of cars">
+    <div class="card text-white bg-info mb-3" style="margin-top:5px">
+      <div class="card-body">
+        <h5 class="card-title">
+          <h2>ID auta: {{car.carId}}</h2>
+        </h5>
+        <h5 class="card-title">
+          <h2>Jmeno auta: {{car.carName}}</h2>
+        </h5>
+        <p class="card-text">
+          <b>Najeto: </b> {{car.km}}</p>
+        <p class="card-text">
+          <b>SPZ: </b>{{car.spz}}</p>
+        <p class="card-text">
+          <b>WIN: </b>{{car.win}}</p>
+        <p class="card-text">
+          <b>Informace: </b>{{car.carIinfo}}</p>
+        <p class="card-text">
+          <b>Odvedena prace: </b>{{car.doneWork}}</p>
+        <p class="card-text">
+          <b>Aktivni: </b>{{car.exist}}</p>
+        <p class="card-text">
+          <b>Nakoupene dily: </b>{{car.buyedParts}}</p>
+        <p class="card-text">
+          <b>ID Opravy: </b>{{car.repairId}}</p>
+        <a href="#" class="btn btn-primary">Detail klienta</a>
+        <a href="#" class="btn btn-secondary">Opravy</a>
+        <a href="#" class="btn btn-warning">Nahradni dily</a>
+      </div>
+    </div>
+  </div>
+</div>

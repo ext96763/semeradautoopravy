@@ -7,14 +7,17 @@ import { UiModule } from './ui/ui.module';
 import { RouterModule } from '@angular/router';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ScrollEventModule } from 'ngx-scroll-event';
+import { HttpClientModule, HttpClient, HttpRequest } from '@angular/common/http';
 
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { CarListComponent } from './components/car-list/car-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CarDetailComponent
+    CarDetailComponent,
+    CarListComponent
   ],
   imports: [
     AppRoutingModule,
@@ -22,7 +25,8 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
     BrowserModule,
     UiModule,
     ScrollEventModule,
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },
