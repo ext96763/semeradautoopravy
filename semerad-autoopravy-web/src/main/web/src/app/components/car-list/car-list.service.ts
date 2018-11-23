@@ -18,8 +18,6 @@ export class CarListService {
 
   // GET car list for easy FE navigation and looking for cars
   getCarList(): Observable<Array<CarList>> {
-    console.log('car service: Object' + CarList);
-    console.log(stringify(CarList));
     return this.http.get<Array<CarList>>(this.api_cars_list);
   }
 

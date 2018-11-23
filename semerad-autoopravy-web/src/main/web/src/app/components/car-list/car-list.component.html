@@ -1,6 +1,6 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col-sm-4" *ngFor="let car of cars">
-    <div class="card text-white bg-info mb-3" style="margin-top:5px">
+    <div class="card text-white bg-info mb-3" style="margin-top:1px">
       <div class="card-body">
         <h5 class="card-title">
           <h2>ID auta: {{car.carId}}</h2>
@@ -24,9 +24,46 @@
           <b>Nakoupene dily: </b>{{car.buyedParts}}</p>
         <p class="card-text">
           <b>ID Opravy: </b>{{car.repairId}}</p>
-        <a href="#" class="btn btn-primary">Detail Auta</a>
-        <a href="#" class="btn btn-secondary">Opravy</a>
-        <a href="#" class="btn btn-warning">Nahradni dily</a>
+        <div class="CarButtons">
+            <a href="#" class="btn btn-primary">Detail Auta</a>
+            <a href="#" class="btn btn-secondary">Opravy</a>
+            <a href="#" class="btn btn-warning">Nahradni dily</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+<div class="row">
+  <div class="col-sm-4" *ngFor="let car of cars">
+    <div class="card" style="margin-top:15px" style="margin-bottom:15px">
+      <div class="box">
+        <div class="img">
+          <img src="https://www.wsupercars.com/wallpapers/Volkswagen/2012-Volkswagen-Passat-R-Line-V1-1080.jpg">
+        </div>
+        <div class="card-body">
+          <p class="card-title">
+            <b>SPZ: {{car.spz}}</b>
+          </p>
+          <p class="card-text">
+            <b>WIN: </b>{{car.win}}
+          </p>
+          <p>Auto: {{car.carName}}</p>
+          <p class="card-text">
+            <a>Najeto: </a> {{car.km}}</p>
+
+          <span>
+            <ul>
+              <i class="fas fa-hammer"></i>
+              <li><a href="#"><i class="fa fa-car fa-2x" aria-hidden="true" title="Detail auta"></i></a></li>
+              <li><a href="#"><i class="fa fa-medkit fa-2x" aria-hidden="true" title="Opravy delane na aute"></i></a></li>
+              <li><a href="#"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro dane auto"></i></a></li>
+            </ul>
+          </span>
+        </div>
       </div>
     </div>
   </div>

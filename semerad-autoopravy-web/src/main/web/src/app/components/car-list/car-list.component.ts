@@ -21,8 +21,7 @@ export class CarListComponent implements OnInit {
   getCarList() {
     this.carServ.getCarList().subscribe(data => {
       this.cars = data;
-      console.log('car service: Object' + this.cars);
-      console.log(stringify(data));
+      console.log(JSON.stringify(data));
     });
   }
 
