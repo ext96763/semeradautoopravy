@@ -22,11 +22,17 @@ export class CarListComponent implements OnInit {
     console.log(JSON.stringify(id));
   }
 
-  removeCar(id): void {
-    if (confirm("Potvrdit smazani " + id)) {
-      console.log(JSON.stringify(id));
+  removeCar(id: number) {
+    if (confirm('Potvrdit smazani auta s ID: ' + id)) {
+      console.log(JSON.stringify('smazani auta s ID: ' + id));
+      this.carServ.removeCar(id).subscribe((data) => {
+        console.log(data);
+        this.ngOnInit();
+      }),
+        err => {
+          console.log('Error occured while deleting the data.' + err);
+        }
     }
-    this.getCarList();
   }
 
   getCarList() {
