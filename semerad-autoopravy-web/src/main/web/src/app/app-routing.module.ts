@@ -12,14 +12,17 @@ const routes: Routes = [
   { path: 'cars', component: CarListComponent },
   { path: 'repairs', component: CarDetailComponent },
   { path: 'parts', component: CarDetailComponent },
+  { path: 'carDetail', component: CarDetailComponent },
   { path: '#/', component: CarDetailComponent },
   { path: '', component: CarDetailComponent }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(
+  imports: [
+    RouterModule.forRoot(
     routes,
-    { enableTracing: true })],
+    { enableTracing: true })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

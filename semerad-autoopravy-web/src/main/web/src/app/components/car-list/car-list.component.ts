@@ -10,7 +10,7 @@ import { stringify } from 'querystring';
 })
 export class CarListComponent implements OnInit {
 
-  cars: Array<CarList>;
+  items: Array<CarList>;
 
   constructor(private carServ: CarListService) { }
 
@@ -20,7 +20,7 @@ export class CarListComponent implements OnInit {
 
   getCarList() {
     this.carServ.getCarList().subscribe(data => {
-      this.cars = data;
+      this.items = data;
       console.log(JSON.stringify(data));
     });
   }
