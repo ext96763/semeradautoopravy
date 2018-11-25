@@ -3,12 +3,16 @@ import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpHeaders } 
 import { CarList } from 'src/app/models/CarList';
 import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
+import { environment } from 'src/environments/environment';
+
+const APIEndpoint = environment.APIEndpoint;
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarListService {
-  api_cars_list = 'https://semeradautoopravy.herokuapp.com/cars';
+
+  api_cars_list = APIEndpoint + '/cars';
 
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 

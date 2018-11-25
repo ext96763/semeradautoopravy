@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProgressbarConfig } from 'ngx-bootstrap/progressbar';
 import { ScrollEvent } from 'ngx-scroll-event';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,14 @@ import { ScrollEvent } from 'ngx-scroll-event';
   styleUrls: ['./app.component.css'],
   providers: [{ provide: ProgressbarConfig, useFactory: getProgressbarConfig }]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+
   public max = 100;
   public progress;
+
+  ngOnInit() {
+    console.log('Environment API run on ' + environment.APIEndpoint);
+  }
 
   public changeProgress(event: ScrollEvent, value: number): void {
 

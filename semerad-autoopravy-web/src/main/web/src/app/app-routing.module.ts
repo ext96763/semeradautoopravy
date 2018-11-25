@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'repairs', component: CarDetailComponent },
   { path: 'parts', component: CarDetailComponent },
   { path: 'carDetail', component: CarDetailComponent },
+  { path: 'carEdit/:id', component: CarDetailComponent},
   { path: '#/', component: CarDetailComponent },
   { path: '', component: CarDetailComponent }
 ];
@@ -20,8 +21,8 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-    routes,
-    { enableTracing: true })
+      routes,
+      { enableTracing: true })
   ],
   exports: [RouterModule]
 })

@@ -10,10 +10,22 @@ import { CarListService } from '../car-list/car-list.service';
 export class CarListComponent implements OnInit {
 
   items: Array<CarList>;
+  id: any;
 
   constructor(private carServ: CarListService) { }
 
   ngOnInit() {
+    this.getCarList();
+  }
+
+  changeCar(id): void {
+    console.log(JSON.stringify(id));
+  }
+
+  removeCar(id): void {
+    if (confirm("Potvrdit smazani " + id)) {
+      console.log(JSON.stringify(id));
+    }
     this.getCarList();
   }
 
