@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarList } from 'src/app/models/CarList';
 import { CarListService } from '../car-list/car-list.service';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-car-list',
