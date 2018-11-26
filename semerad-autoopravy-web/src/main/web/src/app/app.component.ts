@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProgressbarConfig } from 'ngx-bootstrap/progressbar';
 import { ScrollEvent } from 'ngx-scroll-event';
 import { environment } from '../environments/environment';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,34 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     console.log('Environment API run on ' + environment.APIEndpoint);
+
+    // Float button on every page
+    {
+      $('#zoomBtn').click(function () {
+        $('.zoom-btn-sm').toggleClass('scale-out');
+        if (!$('.zoom-card').hasClass('scale-out')) {
+          $('.zoom-card').toggleClass('scale-out');
+        }
+      });
+      $('.zoom-btn-sm').click(function () {
+        const btn = $(this);
+        const card = $('.zoom-card');
+        if ($('.zoom-card').hasClass('scale-out')) {
+          $('.zoom-card').toggleClass('scale-out');
+        }
+        if (btn.hasClass('zoom-btn-person')) {
+          card.css('background-color', '#d32f2f');
+        } else if (btn.hasClass('zoom-btn-doc')) {
+          card.css('background-color', '#fbc02d');
+        } else if (btn.hasClass('zoom-btn-tangram')) {
+          card.css('background-color', '#388e3c');
+        } else if (btn.hasClass('zoom-btn-report')) {
+          card.css('background-color', '#1976d2');
+        } else {
+          card.css('background-color', '#7b1fa2');
+        }
+      });
+    }
   }
 
   public changeProgress(event: ScrollEvent, value: number): void {
