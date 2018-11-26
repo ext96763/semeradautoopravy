@@ -91,10 +91,10 @@
           <div class="dropdown-divider"></div>
           <p class="card-text"><small class="text-muted">
               <div *ngIf="item.exist">
-                Aktivni
+                Aktivni, ID {{item.carId}}
               </div>
               <div *ngIf="!item.exist">
-                Neaktivni
+                Neaktivni, {{item.carId}}
               </div>
             </small></p>
           <div style="height:100px"></div>
