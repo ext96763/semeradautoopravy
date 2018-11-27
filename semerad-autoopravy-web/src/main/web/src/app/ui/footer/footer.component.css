@@ -9,8 +9,19 @@
     right: 0;
     height: 20px;
 } 
-
 .gitHubLink{
     display:inline-block;
-    background-color: brown;
+}
+.swaggerLink{
+    display:inline-block;
+}
+.nav-link{
+    position: fixed;
+    left: 15px;
+    bottom: -20px;
+}
+.swagger-link{
+    position: fixed;
+    left: 85px;
+    bottom: -12px;
 }
