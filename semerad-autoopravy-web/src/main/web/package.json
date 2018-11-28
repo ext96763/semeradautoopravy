@@ -32,6 +32,7 @@
     "material-icons": "^0.2.3",
     "material-icons-font": "^1.4.2",
     "ng2-search-filter": "^0.4.7",
+    "ng4-loading-spinner": "^1.2.3",
     "ngx-bootstrap": "^3.1.1",
     "ngx-scroll-event": "^1.0.8",
     "popper.js": "^1.14.5",

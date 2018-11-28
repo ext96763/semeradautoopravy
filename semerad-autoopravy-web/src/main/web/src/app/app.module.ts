@@ -10,6 +10,7 @@ import { ScrollEventModule } from 'ngx-scroll-event';
 import { HttpClientModule, HttpClient, HttpRequest } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './ui/material.module';
+import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarListComponent } from './components/car-list/car-list.component';
@@ -31,7 +32,8 @@ import { CarListComponent } from './components/car-list/car-list.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [
     { provide: APP_BASE_HREF, useValue: '/' },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CarList } from 'src/app/models/CarList';
 import { CarListService } from '../car-list/car-list.service';
+import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
   selector: 'app-car-list',
@@ -12,7 +13,8 @@ export class CarListComponent implements OnInit {
   items: Array<CarList>;
   id: any;
 
-  constructor(private carServ: CarListService) { }
+  constructor(private carServ: CarListService,
+    private spinnerService: Ng4LoadingSpinnerService) { }
 
   ngOnInit() {
     this.getCarList();
@@ -31,14 +33,16 @@ export class CarListComponent implements OnInit {
       }),
         err => {
           console.log('Error occured while deleting the data.' + err);
-        }
+        };
     }
   }
 
   getCarList() {
+    this.spinnerService.show();
     this.carServ.getCarList().subscribe(data => {
       this.items = data;
       console.log(JSON.stringify(data));
+      this.spinnerService.hide();
     });
   }
 
