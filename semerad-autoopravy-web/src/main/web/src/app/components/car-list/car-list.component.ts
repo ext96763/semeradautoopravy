@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CarList } from 'src/app/models/CarList';
-import { CarListService } from '../car-list/car-list.service';
+import { CarListService } from './car-list.service';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 
 @Component({
@@ -26,10 +26,12 @@ export class CarListComponent implements OnInit {
 
   removeCar(id: number) {
     if (confirm('Potvrdit smazani auta s ID: ' + id)) {
+      this.spinnerService.show();
       console.log(JSON.stringify('smazani auta s ID: ' + id));
       this.carServ.removeCar(id).subscribe((data) => {
         console.log(data);
         this.ngOnInit();
+        this.spinnerService.hide();
       }),
         err => {
           console.log('Error occured while deleting the data.' + err);

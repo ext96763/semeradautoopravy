@@ -7,20 +7,22 @@ import { UiModule } from './ui/ui.module';
 import { RouterModule } from '@angular/router';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ScrollEventModule } from 'ngx-scroll-event';
-import { HttpClientModule, HttpClient, HttpRequest } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './ui/material.module';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarListComponent } from './components/car-list/car-list.component';
+import { AddCarComponent } from './components/add-car/add-car.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CarDetailComponent,
-    CarListComponent
+    CarListComponent,
+    AddCarComponent
   ],
   imports: [
     AppRoutingModule,

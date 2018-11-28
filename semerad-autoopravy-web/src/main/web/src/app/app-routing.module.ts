@@ -1,9 +1,9 @@
-import { NgModule, Component } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppComponent } from './app.component';
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { CarListComponent } from '../app/components/car-list/car-list.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { AddCarComponent } from 'src/app/components/add-car/add-car.component';
 
 const routes: Routes = [
   { path: 'info', component: CarDetailComponent },
@@ -12,6 +12,10 @@ const routes: Routes = [
   { path: 'cars', component: CarListComponent },
   { path: 'repairs', component: CarDetailComponent },
   { path: 'parts', component: CarDetailComponent },
+  { path: 'addUser', component: AddCarComponent },
+  { path: 'addCar', component: AddCarComponent },
+  { path: 'addRepair', component: AddCarComponent },
+  { path: 'addPart', component: AddCarComponent },
   { path: 'carDetail/:carId', component: CarDetailComponent },
   { path: 'carEdit/:id', component: CarDetailComponent},
   { path: 'repairs/:id', component: CarDetailComponent },

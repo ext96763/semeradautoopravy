@@ -43,7 +43,9 @@ export class AppComponent implements OnInit {
         } else {
           card.css('background-color', '#7b1fa2');
         }
-      });
+      }).on('mouseup', function() {
+        console.log('tlactko odmacknute');
+     });
     }
   }
 
