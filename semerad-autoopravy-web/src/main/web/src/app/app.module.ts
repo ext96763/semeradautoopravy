@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './ui/material.module';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
+import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarListComponent } from './components/car-list/car-list.component';
@@ -32,6 +33,7 @@ import { AddCarComponent } from './components/add-car/add-car.component';
     ScrollEventModule,
     ProgressbarModule.forRoot(),
     HttpClientModule,
+    AngularSvgIconModule,
     ReactiveFormsModule,
     FormsModule,
     CustomMaterialModule,

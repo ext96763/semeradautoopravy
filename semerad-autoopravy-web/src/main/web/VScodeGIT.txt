@@ -7,5 +7,10 @@ git config --global credential.helper 'cache --timeout=3600'
 version mismatch
 npm install --save-dev @angular/cli@latest
 
+
+--Git rebase
 git fetch origin            # Updates origin/master
 git rebase origin/master    # Rebases current branch onto origin/master
+
+--Dependency missing
+npm install
