@@ -1,7 +1,7 @@
 import { Deserializable } from '../Utils/deserializable';
 import { RepairModel } from './RepairModel';
 
-export class CarModel implements Deserializable<CarModel>{
+export class CarModel implements Deserializable<CarModel> {
   carId: number;
   carUserId: number;
   carName: string;

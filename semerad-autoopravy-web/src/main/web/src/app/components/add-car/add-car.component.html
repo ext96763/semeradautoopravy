@@ -2,20 +2,68 @@
   <h2 class="text-center">Pridat auto</h2>
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="email">SPZ</label>
-      <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      <label for="spz">SPZ</label>
+      <input type="email" formControlName="SPZ" placeholder="SPZ" name="spz" class="form-control" id="spz">
     </div>
 
     <div class="form-group">
-      <label for="firstName">WIN</label>
-      <input formControlName="firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName">
+      <label for="win">WIN</label>
+      <input formControlName="win" placeholder="WIN" name="WIN" class="form-control" id="win">
     </div>
 
     <div class="form-group">
-      <label for="lastName">Model</label>
-      <input formControlName="lastName" placeholder="Last name" name="lastName" class="form-control" id="lastName">
+      <label for="">ID uzivatele kteremu auto patri</label>
+      <input formControlName="ID" placeholder="ID" name="id" class="form-control" id="id">
+    </div>
+
+    <div class="form-group">
+      <label for="carName">Znacka a model auta</label>
+      <input formControlName="carName" placeholder="Model" name="carName" class="form-control" id="carName">
+    </div>
+
+    <div class="form-group">
+      <label for="">Najeto</label>
+      <input formControlName="km" placeholder="KM" name="km" class="form-control" id="km">
+    </div>
+
+    <div class="form-group">
+      <label for="">Popis auta</label>
+      <input formControlName="popis" placeholder="Popsat auto" name="popis" class="form-control" id="popis">
+    </div>
+
+    <div class="form-group">
+      <label for="">Datum zacatku obsluhy</label>
+      <input formControlName="dzacatek" placeholder="Kdy auto poprve prijelo na osluhu" name="dzacatek" class="form-control" id="dzacatek">
+    </div>
+
+    <div class="form-group">
+      <label for="">Datum konce obsluhy</label>
+      <input formControlName="dkonec" placeholder="Kdy auto prestalo byt servisovano" name="dkonec" class="form-control" id="dkonec">
+    </div>
+
+    <div class="form-group">
+      <label for="">Popis odvedene prace na aute</label>
+      <input formControlName="popisprace" placeholder="Popsat co se na aute delalo" name="popisprace" class="form-control" id="popisprace">
+    </div>
+
+    <div class="form-group">
+      <label for="">Zakoupene dily</label>
+      <input formControlName="dily" placeholder="Popsat co se na auto kupovalo" name="dily" class="form-control" id="dily">
+    </div>
+
+    <div class="form-group">
+      <label for="">Opravy</label>
+      <input formControlName="opravy" placeholder="Popsat co se na aute opravovalo" name="opravy" class="form-control" id="opravy">
+    </div>
+
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox"> Auto stale existuje/je aktivni
+      </label>
     </div>
 
     <button class="btn btn-success">Vytvorit</button>
   </form>
 </div>
+
+<div style="height:80px"></div>
