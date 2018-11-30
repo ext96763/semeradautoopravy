@@ -1,5 +1,21 @@
 <div class="container main-secction">
-  detail of car, soon!
+  <div class="col-xs-6 divGeneral" *ngFor="let item of items">
+    <h2>
+      Detail auta
+    </h2>
+    <h1>
+      <b>CarID</b> {{item.carId}}
+    </h1>
+    <h2>
+      <b>caruserid</b>{{item.carUserId}}
+    </h2>
+  </div>
+</div>
+
+<div class="box box-default">
+    <code>
+        <pre>{{items |json}}</pre>
+    </code>
 </div>
 
 <div style="height:180px"></div>

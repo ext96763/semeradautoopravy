@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: 'addCar', component: AddCarComponent },
   { path: 'addRepair', component: AddCarComponent },
   { path: 'addPart', component: AddCarComponent },
-  { path: 'carDetail/:carId', component: CarDetailComponent },
+  { path: 'carDetail/:id', component: CarDetailComponent },
   { path: 'carEdit/:id', component: CarDetailComponent},
   { path: 'repairs/:id', component: CarDetailComponent },
   { path: 'parts/:id', component: CarDetailComponent },

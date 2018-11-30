@@ -16,11 +16,12 @@ export class CarDetailService {
   headers = new HttpHeaders({'Content-Type': 'application/json'});
 
     constructor (private http: HttpClient) {
-    this.getCarDetail();
   }
 
   // GET User Detail with all cars and repairs
-  getCarDetail(): Observable<CarModel> {return this.http.get<CarModel>(this.api_car_detail + '26');
+  getCarDetail(id): Observable<CarModel> {
+    console.log('Car Detail ID called from API: ' + id);
+    return this.http.get<CarModel>(this.api_car_detail + id);
   }
 
 }

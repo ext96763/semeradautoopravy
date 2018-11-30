@@ -43,7 +43,7 @@ export class CarListComponent implements OnInit {
     this.spinnerService.show();
     this.carServ.getCarList().subscribe(data => {
       this.items = data;
-      console.log(JSON.stringify(data));
+      console.log('carList service response: ' + JSON.stringify(this.items));
       this.spinnerService.hide();
     });
   }
