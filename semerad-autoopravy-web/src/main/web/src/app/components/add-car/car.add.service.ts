@@ -17,6 +17,7 @@ export class CarService {
   constructor(private http: HttpClient) { }
 
   createUser(car: CarModel) {
+    console.log('vytvarim zaznam do DB z modelu: ' + JSON.stringify(car));
     return this.http.post(this.api_car_add, car);
   }
 

@@ -12,7 +12,7 @@ export class CarModel implements Deserializable<CarModel> {
   startDateError: Date;
   endDateError: Date;
   featureRepairDate: Date;
-  doneWork: string;
+  doneWork: boolean;
   exist: Boolean;
   buyedParts: string;
   repairs: RepairModel;
@@ -33,7 +33,7 @@ export class CarModel implements Deserializable<CarModel> {
   }
 
   constructor(carId: number, carUserId: number, carName: string, win: string, spz: string, km: number,
-    carInfo: string, startDateError: Date, endDateError: Date, featureRepairDate: Date, doneWork: string,
+    carInfo: string, startDateError: Date, endDateError: Date, featureRepairDate: Date, doneWork: boolean,
     exist: Boolean, buyedParts: string, repairs: RepairModel) {
     this.carId = carId;
     this.carUserId = carUserId;
