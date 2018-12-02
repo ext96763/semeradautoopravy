@@ -4,11 +4,11 @@ import { CarService } from './car.add.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-car',
-  templateUrl: './add-car.component.html',
-  styleUrls: ['./add-car.component.css']
+  selector: 'app-car-add',
+  templateUrl: './car-add.component.html',
+  styleUrls: ['./car-add.component.css']
 })
-export class AddCarComponent implements OnInit {
+export class CarAddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private carService: CarService) { }
 

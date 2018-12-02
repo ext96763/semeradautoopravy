@@ -15,7 +15,7 @@ import { AngularSvgIconModule } from 'angular-svg-icon';
 
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarListComponent } from './components/car-list/car-list.component';
-import { AddCarComponent } from './components/add-car/add-car.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 @NgModule({
@@ -23,7 +23,7 @@ import { AddCarComponent } from './components/add-car/add-car.component';
     AppComponent,
     CarDetailComponent,
     CarListComponent,
-    AddCarComponent
+    CarAddComponent
   ],
   imports: [
     AppRoutingModule,

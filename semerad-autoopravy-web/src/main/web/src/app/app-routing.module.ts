@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { CarDetailComponent } from './components/car-detail/car-detail.component';
 import { CarListComponent } from './components/car-list/car-list.component';
-import { AddCarComponent } from 'src/app/components/add-car/add-car.component';
+import { CarAddComponent } from 'src/app/components/car-add/car-add.component';
 
 const routes: Routes = [
   { path: 'info', component: CarDetailComponent },
@@ -12,10 +12,10 @@ const routes: Routes = [
   { path: 'cars', component: CarListComponent },
   { path: 'repairs', component: CarDetailComponent },
   { path: 'parts', component: CarDetailComponent },
-  { path: 'addUser', component: AddCarComponent },
-  { path: 'addCar', component: AddCarComponent },
-  { path: 'addRepair', component: AddCarComponent },
-  { path: 'addPart', component: AddCarComponent },
+  { path: 'addUser', component: CarAddComponent },
+  { path: 'addCar', component: CarAddComponent },
+  { path: 'addRepair', component: CarAddComponent },
+  { path: 'addPart', component: CarAddComponent },
   { path: 'carDetail/:id', component: CarDetailComponent },
   { path: 'carEdit/:id', component: CarDetailComponent},
   { path: 'repairs/:id', component: CarDetailComponent },
