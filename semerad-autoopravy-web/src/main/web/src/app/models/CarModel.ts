@@ -4,7 +4,6 @@ import { RepairModel } from './RepairModel';
 export class CarModel implements Deserializable<CarModel> {
   carId: number;
   carUserId: number;
-  carName: string;
   win: string;
   spz: string;
   km: number;
@@ -32,7 +31,7 @@ export class CarModel implements Deserializable<CarModel> {
     return this;
   }
 
-  constructor(carId: number, carUserId: number, carName: string, win: string, spz: string, km: number,
+  constructor(carId: number, carUserId: number, win: string, spz: string, km: number,
     carInfo: string, startDateError: Date, endDateError: Date, featureRepairDate: Date, doneWork: boolean,
     exist: Boolean, buyedParts: string, repairs: RepairModel) {
     this.carId = carId;

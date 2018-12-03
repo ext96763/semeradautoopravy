@@ -13,9 +13,10 @@ import { CustomMaterialModule } from './ui/material.module';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
-import { CarListComponent } from './components/car-list/car-list.component';
-import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarDetailComponent } from './components/car/car-detail/car-detail.component';
+import { CarListComponent } from './components/car/car-list/car-list.component';
+import { CarAddComponent } from './components/car/car-add/car-add.component';
+import { CarEditComponent } from './components/car/car-edit/car-edit.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     AppComponent,
     CarDetailComponent,
     CarListComponent,
-    CarAddComponent
+    CarAddComponent,
+    CarEditComponent
   ],
   imports: [
     AppRoutingModule,

@@ -1,0 +1,70 @@
+<div style="height:80px"></div>
+
+<div class="col-md-6">
+  <h2 class="text-center">Editovat auto</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+
+    <div class="col-xs-6 form-group">
+      <label for="">ID uzivatele kteremu auto patri</label>
+      <input type="number" formControlName="carUserId" placeholder="ID uzivatele" name="carUserId" class="form-control" id="userId">
+    </div>
+
+    <div class="col-xs-6 form-group">
+        <label for="win">WIN</label>
+        <input type="text" formControlName="win" placeholder="win" name="win" class="form-control" id="win">
+      </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="spz">SPZ</label>
+      <input type="text" formControlName="spz" placeholder="spz" name="spz" class="form-control" id="spz">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="">Najeto</label>
+      <input type="number" formControlName="km" placeholder="Pocet km" name="km" class="form-control" id="km">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="">Znacka a model auta</label>
+      <input type="text" formControlName="carInfo" placeholder="Popsat auto" name="carInfo" class="form-control" id="carInfo">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="">Datum zacatku obsluhy</label>
+      <input type="date" formControlName="startDateError" placeholder="Kdy auto poprve prijelo na osluhu" name="startDateError" class="form-control" id="startDateError">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="">Datum konce obsluhy</label>
+      <input type="date" formControlName="endDateError" placeholder="Kdy auto prestalo byt servisovano" name="endDateError" class="form-control" id="endDateError">
+    </div>
+
+    <div class="col-xs-6 form-group">
+        <label for="">Datum budouci obsluhy</label>
+        <input type="date" formControlName="featureRepairDate" placeholder="Kdy auto bude servisovano" name="featureRepairDate" class="form-control" id="featureRepairDate">
+      </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="">Zakoupene dily</label>
+      <input type="text" formControlName="buyedParts" placeholder="Popsat co se na auto kupovalo" name="buyedParts" class="form-control" id="buyedParts">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="">Opravy</label>
+      <input type="text" formControlName="repairs" placeholder="Popsat co se na aute opravovalo" name="opravy" class="form-control" id="opravy">
+    </div>
+
+    <div class="form-group form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" formControlName="exist" type="checkbox" style="width:15px" style="height:15px"  name="exist" class="form-control" id="exist"> Auto stale existuje/je aktivni
+      </label>
+      <label class="form-check-label">
+        <input class="form-check-input" formControlName="doneWork" type="checkbox" style="width:15px" style="height:15px" name="doneWork" class="form-control" id="doneWork"> Prace na aute dokoncena
+      </label>
+    </div>
+
+    <button class="btn btn-success">Ulozit</button>
+  </form>
+</div>
+
+<div style="height:80px"></div>

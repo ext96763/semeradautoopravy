@@ -17,7 +17,6 @@ export class UserModel implements Deserializable<UserModel> {
     this.cars = new CarModel(
       this.cars.carId,
       this.cars.carUserId,
-      this.cars.carName,
       this.cars.win,
       this.cars.spz,
       this.cars.km,

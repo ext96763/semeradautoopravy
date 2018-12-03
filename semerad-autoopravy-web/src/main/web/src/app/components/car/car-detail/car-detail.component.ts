@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CarDetailService } from './car-detail.service';
+import { CarService } from '../car.service';
 import { CarModel } from 'src/app/models/CarModel';
 import { ActivatedRoute } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class CarDetailComponent implements OnInit {
   items: CarModel;
   id: any;
 
-  constructor(private detailService: CarDetailService, private activeRoute: ActivatedRoute) { }
+  constructor(private carService: CarService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const queryParams = this.activeRoute.snapshot.queryParams;
@@ -23,7 +23,7 @@ export class CarDetailComponent implements OnInit {
     }
 
     getCarDetail(id: number) {
-      this.detailService.getCarDetail(this.id).subscribe(data => {
+      this.carService.getCarDetail(this.id).subscribe(data => {
         this.items = data;
         console.log('userDetail service response: ' + JSON.stringify(this.items));
       });

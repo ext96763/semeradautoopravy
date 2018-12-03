@@ -1,0 +1,8 @@
+.col-md-6{
+    align-content: center;
+}
+
+.form-check-label{
+   display: inline-block;
+   margin: 10px;
+}

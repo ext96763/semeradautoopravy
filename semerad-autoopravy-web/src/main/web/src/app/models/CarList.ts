@@ -2,7 +2,6 @@
 export class CarList {
   carId: number;
   carUserId: number;
-  carName: string;
   win: string;
   spz: string;
   km: number;
@@ -15,7 +14,7 @@ export class CarList {
   buyedParts: string;
   repairs: number;
 
-  constructor(carId: number, carUserId: number, carName: string, win: string, spz: string, km: number,
+  constructor(carId: number, carUserId: number, win: string, spz: string, km: number,
     carInfo: string, startDateError: Date, endDateError: Date, featureRepairDate: Date, doneWork: string,
     exist: Boolean, buyedParts: string, repairs: number) {
     this.carId = carId;

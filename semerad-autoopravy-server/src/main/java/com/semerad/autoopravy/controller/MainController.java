@@ -43,7 +43,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/customers", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<Customer> getAllUsers() {
@@ -56,7 +56,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/cars", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<Car> getAllCars() {
@@ -69,7 +69,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/repairs", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<Repair> getAllRepairs() {
@@ -82,7 +82,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/parts", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<SparePart> getAllParts() {
@@ -101,7 +101,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/user", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Customer> getUserById(@RequestParam(value = "id", required = true) Integer id) {
@@ -136,7 +136,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/user/detail", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<List<Customer>> getUserDetailById(@RequestParam(value = "id", required = true) Integer id) {
@@ -175,7 +175,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/user", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Customer> insertNewUser(@RequestBody Customer customer) {
@@ -207,7 +207,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/user", method = RequestMethod.PUT, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Customer> updateUser(@RequestBody Customer customer) {
@@ -236,7 +236,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/user", method = RequestMethod.DELETE, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Customer> deleteUser(@RequestParam(value = "id", required = true) Integer id) {
@@ -266,7 +266,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/car", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Car> getCarById(@RequestParam(value = "id", required = true) Integer id) {
@@ -286,7 +286,7 @@ public class MainController implements ErrorController {
             responseHeaders.set("CarFound", "true");
             logger.info("Car found ID: " + id);
         }
-        return new ResponseEntity<>(car, responseHeaders, HttpStatus.FOUND);
+        return new ResponseEntity<>(car, responseHeaders, HttpStatus.OK);
     }
 
     /**
@@ -301,7 +301,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/car/detail", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<List<Car>> getCarDetailById(@RequestParam(value = "id", required = true) Integer id) {
@@ -339,7 +339,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/car", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Car> insertNewCar(@RequestBody Car car) {
@@ -371,7 +371,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/car", method = RequestMethod.PUT, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Car> updateCar(@RequestBody Car car) {
@@ -399,7 +399,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/car", method = RequestMethod.DELETE, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Car> deleteCar(@RequestParam(value = "id", required = true) Integer id) {
@@ -428,7 +428,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/repair", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Repair> getRepairById(@RequestParam(value = "id", required = true) Integer id) {
@@ -464,7 +464,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/repair/detail", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<List<Repair>> getRepairDetailById(@RequestParam(value = "id", required = true) Integer id) {
@@ -502,7 +502,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/repair", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Repair> insertNewRepair(@RequestBody Repair repair) {
@@ -534,7 +534,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/repair", method = RequestMethod.PUT, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Repair> updateRepair(@RequestBody Repair repair) {
@@ -563,7 +563,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/repair", method = RequestMethod.DELETE, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Repair> deleteRepair(@RequestParam(value = "id", required = true) Integer id) {
@@ -592,7 +592,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/part", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<SparePart> getPartById(@RequestParam(value = "id", required = true) Integer id) {
@@ -629,7 +629,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/part", method = RequestMethod.POST, produces = "application/json")
     public @ResponseBody
     ResponseEntity<SparePart> insertNewPart(@RequestBody SparePart sparePart) {
@@ -661,7 +661,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/part", method = RequestMethod.PUT, produces = "application/json")
     public @ResponseBody
     ResponseEntity<SparePart> updatePart(@RequestBody SparePart sparePart) {
@@ -689,7 +689,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin()
+    @CrossOrigin("http://localhost:4200")
     @RequestMapping(value = "/part", method = RequestMethod.DELETE, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Car> deletePart(@RequestParam(value = "id", required = true) Integer id) {

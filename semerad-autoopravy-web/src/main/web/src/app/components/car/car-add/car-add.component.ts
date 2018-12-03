@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CarService } from './car.add.service';
+import { CarService } from '../car.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,7 +20,6 @@ export class CarAddComponent implements OnInit {
     this.addForm = this.formBuilder.group({
       carId: [],
       carUserId: [],
-      carName: [],
       win: [],
       spz: [],
       km: [],
@@ -39,9 +38,9 @@ export class CarAddComponent implements OnInit {
   }
 
   onSubmit() {
-    this.carService.createUser(this.addForm.value)
+    this.carService.createCar(this.addForm.value)
       .subscribe(data => {
-        console.log('component to service: ' + this.addForm.value);
+        console.log('Component ADD to service addForm value: ' + this.addForm.value);
         this.router.navigate(['cars']);
       });
   }
