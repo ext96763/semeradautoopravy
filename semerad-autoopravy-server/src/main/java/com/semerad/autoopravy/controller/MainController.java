@@ -286,7 +286,7 @@ public class MainController implements ErrorController {
             responseHeaders.set("CarFound", "true");
             logger.info("Car found ID: " + id);
         }
-        return new ResponseEntity<>(car, responseHeaders, HttpStatus.FOUND);
+        return new ResponseEntity<>(car, responseHeaders, HttpStatus.OK);
     }
 
     /**
