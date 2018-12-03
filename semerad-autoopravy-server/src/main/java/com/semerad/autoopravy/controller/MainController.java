@@ -236,7 +236,7 @@ public class MainController implements ErrorController {
             @ApiResponse(code = 400, message = "Bad Request"),
             @ApiResponse(code = 404, message = "Not Found"),
             @ApiResponse(code = 500, message = "Failure")})
-    @CrossOrigin("http://localhost:4200")
+    @CrossOrigin(origins = "http://localhost:4200")
     @RequestMapping(value = "/user", method = RequestMethod.DELETE, produces = "application/json")
     public @ResponseBody
     ResponseEntity<Customer> deleteUser(@RequestParam(value = "id", required = true) Integer id) {
