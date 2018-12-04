@@ -56,9 +56,9 @@ export class CarService {
   }
 
   // Update car in DB
-  updateCar(id): Observable<CarModel[]> {
-    console.log('Updating car from Service, ID: ' + this.CAR + id);
-    return this.http.delete<CarModel[]>(this.CAR + id);
+  updateCar(car: CarModel) {
+    console.log('Updating car from Service to DB, ID: ' + this.CAR + 'data' + car);
+    return this.http.put(this.CAR, car);
   }
 
 }
