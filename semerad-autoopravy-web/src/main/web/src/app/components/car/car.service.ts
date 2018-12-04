@@ -14,7 +14,8 @@ const APIEndpoint = environment.APIEndpoint;
 export class CarService {
 
   CARS = APIEndpoint + '/cars';
-  CAR_DETAIL = APIEndpoint + '/car?id=';
+  CAR_DETAIL = APIEndpoint + '/car/detail?id=';
+  CAR_BY_ID = APIEndpoint + '/car?id=';
   CAR = APIEndpoint + '/car';
   CAR_REMOVE = APIEndpoint + '/car?id=';
 
@@ -38,8 +39,8 @@ export class CarService {
 
   // GET car by ID
   getCarById(id): Observable<CarModel> {
-    console.log('Car by ID called from API: ' + this.CAR_DETAIL + id);
-    return this.http.get<CarModel>(this.CAR_DETAIL + id);
+    console.log('Car by ID called from API: ' + this.CAR_BY_ID + id);
+    return this.http.get<CarModel>(this.CAR_BY_ID + id);
   }
 
   // GET car list for easy FE navigation and looking for cars

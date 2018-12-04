@@ -45,7 +45,7 @@ export class CarEditComponent implements OnInit {
 
     this.carService.getCarById(routeParams.id)
       .subscribe( data => {
-        console.log('Data to set editForm' + JSON.stringify(data));
+        console.log('Data to set to editForm' + JSON.stringify(data));
         this.editForm.setValue(data);
       });
 
