@@ -57,7 +57,7 @@ export class CarService {
 
   // Update car in DB
   updateCar(car: CarModel) {
-    console.log('Updating car from Service to DB, ID: ' + this.CAR + 'data' + car);
+    console.log('Updating car from Service to DB, ID: ' + this.CAR + ' data:' + JSON.stringify(car));
     return this.http.put(this.CAR, car);
   }
 

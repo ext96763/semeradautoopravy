@@ -9,6 +9,9 @@ body {
     font-family:sans-serif;
     background:#fbfbfb;
 }
+.card-deck {
+    margin-right: 1px;
+}
 .card {
     /* position:absolute;  */
     top:50%;

@@ -28,10 +28,11 @@ export class CarListComponent implements OnInit {
         console.log(data);
         this.ngOnInit();
         this.spinnerService.hide();
-      }),
+      },
         err => {
           console.log('Error occured while deleting the data.' + err);
-        };
+        }
+      );
     }
   }
 
