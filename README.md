@@ -1,5 +1,5 @@
 # semerad-autoopravy
-Lite CRM
+Lite CRM. Project to manage clients in small firm
 
 ## Development server
 Tomcat. Or tomcat inside spring boot
@@ -8,12 +8,7 @@ Tomcat. Or tomcat inside spring boot
 Download sources and run maven install job on parent
 
 ## Running unit tests
-
-
-
-## Running end-to-end tests
-
-
+No tests
 
 ## Further help
-
+Nope

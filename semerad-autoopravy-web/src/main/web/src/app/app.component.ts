@@ -3,6 +3,8 @@ import { ProgressbarConfig } from 'ngx-bootstrap/progressbar';
 import { ScrollEvent } from 'ngx-scroll-event';
 import { environment } from '../environments/environment';
 import * as $ from 'jquery';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { filter, debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +16,10 @@ export class AppComponent implements OnInit {
 
   public max = 100;
   public progress;
+
+  constructor(private router: Router) {
+    this.hideButton();
+  }
 
   ngOnInit() {
     console.log('Environment API run on ' + environment.APIEndpoint);
@@ -43,8 +49,7 @@ export class AppComponent implements OnInit {
         } else {
           card.css('background-color', '#7b1fa2');
         }
-      }).on('mouseup', function() {
-        console.log('tlactko odmacknute');
+      }).on('mouseup', function () {
      });
     }
   }
@@ -64,6 +69,18 @@ export class AppComponent implements OnInit {
     this.progress = scrollPercentRounded;
   }
 
+  hideButton() {
+    this.router.events.pipe(
+      filter((event) => event instanceof NavigationEnd),
+      debounceTime(400)
+    ).subscribe(
+      x => {
+        {
+          $('.zoom-btn-sm').toggleClass('scale-out');
+        }
+      }
+    );
+  }
 }
 
 export function getProgressbarConfig(): ProgressbarConfig {

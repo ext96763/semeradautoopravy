@@ -8,7 +8,8 @@ body {
     height: 20px;
 }
 .card-deck {
-    margin-right: 1px;
+    margin-right: 15px;
+    margin-left: 13px;
 }
 .h4 .card-title{
     word-break: break-all;

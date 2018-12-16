@@ -29,7 +29,9 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(
       routes,
-      { enableTracing: true })
+      // Enable route tracing in LOG only for dev purpose
+      // { enableTracing: true }
+      )
   ],
   exports: [RouterModule]
 })
