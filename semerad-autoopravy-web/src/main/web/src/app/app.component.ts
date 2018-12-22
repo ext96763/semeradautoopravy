@@ -24,6 +24,14 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     console.log('Environment API run on ' + environment.APIEndpoint);
 
+    // On reroute start page on TOP
+    this.router.events.subscribe((evt) => {
+      if (!(evt instanceof NavigationEnd)) {
+        return;
+      }
+      window.scrollTo(0, 0);
+    });
+
     // Float button on every page
     {
       $('#zoomBtn').click(function () {
@@ -50,22 +58,17 @@ export class AppComponent implements OnInit {
           card.css('background-color', '#7b1fa2');
         }
       }).on('mouseup', function () {
-     });
+      });
     }
   }
 
   public changeProgress(event: ScrollEvent, value: number): void {
 
     const docH = document.body.clientHeight;
-    console.log('docH', docH);
     const scrT = document.documentElement.scrollTop;
-    console.log('scrT', scrT);
     const winH = window.innerHeight;
-    console.log('winH', winH);
     const scrP = (scrT / (docH - winH));
-    console.log('scrP', scrP);
     const scrollPercentRounded = Math.round(Number((scrP * 100).toFixed(1)));
-    console.log('scrollPercentRounded', scrollPercentRounded);
     this.progress = scrollPercentRounded;
   }
 
