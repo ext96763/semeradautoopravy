@@ -704,4 +704,26 @@ public class MainController implements ErrorController {
         logger.info("SparePart Deleted. SparePart ID: " + id);
         return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
     }
+
+    /**
+     * Method for testing FE
+     * @return always 400, BAD_REQUEST
+     */
+    @ApiOperation(value = "Get Error Message", notes = "Error Message", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 401, message = "Unauthorized"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/getBadReq", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<SparePart> getBadReq() {
+        
+        HttpHeaders responseHeaders = new HttpHeaders();
+        responseHeaders.set("TestBadReq", "true");
+        logger.info("getBadReq called from API");
+        return new ResponseEntity<>(responseHeaders, HttpStatus.BAD_REQUEST);
+    }
 }
