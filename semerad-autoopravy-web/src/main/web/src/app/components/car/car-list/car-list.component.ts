@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CarList } from 'src/app/models/CarList';
 import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { CarService } from '../car.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-car-list',
@@ -21,19 +22,39 @@ export class CarListComponent implements OnInit {
   }
 
   removeCar(id: number) {
-    if (confirm('Potvrdit smazani auta s ID: ' + id)) {
-      this.spinnerService.show();
-      console.log(JSON.stringify('smazani auta s ID: ' + id));
-      this.carService.removeCar(id).subscribe((data) => {
-        console.log(data);
-        this.ngOnInit();
-        this.spinnerService.hide();
-      },
-        err => {
-          console.log('Error occured while deleting the data.' + err);
-        }
-      );
-    }
+
+    Swal({
+      title: 'Potvrdit smazani auta s ID: ' + id,
+      text: 'Operace je nevratna',
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ano, smazat',
+      cancelButtonText: 'Nemazat'
+    }).then((result) => {
+      if (result.value) {
+
+        this.spinnerService.show();
+        console.log(JSON.stringify('smazani auta s ID: ' + id));
+        this.carService.removeCar(id).subscribe((data) => {
+          console.log(data);
+          this.ngOnInit();
+          this.spinnerService.hide();
+        },
+          err => {
+            console.log('Error occured while deleting the data.' + err);
+          }
+
+        );
+        Swal(
+          'Smazano!',
+          'Zaznam smazan.',
+          'success'
+        );
+      }
+    });
+
   }
 
   getCarList() {
