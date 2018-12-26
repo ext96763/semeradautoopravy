@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 import { CarService } from '../car.service';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-car-edit',
@@ -45,13 +46,21 @@ export class CarEditComponent implements OnInit {
 
     this.carService.getCarById(routeParams.id)
       .subscribe( data => {
-        console.log('Data to set to editForm' + JSON.stringify(data));
+        console.log('Data readed to set editForm' + JSON.stringify(data));
         this.editForm.setValue(data);
       });
 
     }
 
     onSubmit() {
+      Swal({
+        position: 'center',
+        type: 'success',
+        title: 'Zaznam ulozen',
+        showConfirmButton: false,
+        timer: 1500
+      });
+
       this.carService.updateCar(this.editForm.value)
         .pipe(first())
         .subscribe(

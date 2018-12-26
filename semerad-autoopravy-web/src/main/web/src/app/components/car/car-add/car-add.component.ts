@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CarService } from '../car.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-car-add',
@@ -38,6 +39,14 @@ export class CarAddComponent implements OnInit {
   }
 
   onSubmit() {
+    Swal({
+      position: 'center',
+      type: 'success',
+      title: 'Zaznam ulozen',
+      showConfirmButton: false,
+      timer: 1500
+    });
+
     this.carService.createCar(this.addForm.value)
       .subscribe(data => {
         console.log('Component ADD to service addForm value: ' + this.addForm.value);

@@ -21,9 +21,7 @@ export class CarService {
 
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  constructor(private http: HttpClient) {
-    this.getCarList();
-  }
+  constructor(private http: HttpClient) {}
 
   // Create car
   createCar(car: CarModel) {

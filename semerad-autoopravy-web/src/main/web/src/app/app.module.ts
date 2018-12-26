@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,7 +17,8 @@ import { CarDetailComponent } from './components/car/car-detail/car-detail.compo
 import { CarListComponent } from './components/car/car-list/car-list.component';
 import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { CarEditComponent } from './components/car/car-edit/car-edit.component';
-
+import { GlobalErrorHandler } from './components/error/global-error-handler.service';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CarEditComponent } from './components/car/car-edit/car-edit.component';
     CarDetailComponent,
     CarListComponent,
     CarAddComponent,
-    CarEditComponent
+    CarEditComponent,
+    ErrorComponent
   ],
   imports: [
     AppRoutingModule,
@@ -42,6 +44,7 @@ import { CarEditComponent } from './components/car/car-edit/car-edit.component';
     Ng4LoadingSpinnerModule.forRoot()
   ],
   providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
     { provide: APP_BASE_HREF, useValue: '/' },
     { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],

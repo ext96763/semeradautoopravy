@@ -27,7 +27,8 @@
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/font-awesome/css/font-awesome.min.css",
               "./node_modules/material-icons/css/material-icons.min.css",
-              "./node_modules/material-icons-font/material-icons-font.css"
+              "./node_modules/material-icons-font/material-icons-font.css",
+              "./node_modules/sweetalert2/dist/sweetalert2.min.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.min.js",
@@ -35,7 +36,8 @@
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",
               "./node_modules/hammerjs/hammer.min.js",
               "./node_modules/material-icons/scripts/codepoints.js",
-              "node_modules/@material/ripple/dist/mdc.ripple.js"
+              "node_modules/@material/ripple/dist/mdc.ripple.js",
+              "./node_modules/sweetalert2/dist/sweetalert2.all.min.js"
             ]
           },
           "configurations": {
