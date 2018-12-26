@@ -27,11 +27,12 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   color:black;
+  box-shadow: 0px 21px 45px -3px rgba(0,0,0,0.89);
 }
 
 .zoom-fab:hover {
   background-color: #4db6ac;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 21px 45px -20px rgba(0,0,0,0.89), 0 1px 7px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -1px rgba(0, 0, 0, 0.2);
 }
 
 .zoom-btn-large {
@@ -39,6 +40,31 @@
   height: 60px;
   line-height: 60px;
 }
+
+/* .zoom-fab:before, .zoom-fab:after {
+  position: absolute;
+  content: "";
+  height: 80px;
+  width: 60%;
+  background-color: black;
+  bottom: 5px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 15px 10px black;
+  box-shadow: 0 0 15px 10px black;
+  z-index: -1;
+}
+.zoom-fab:before {
+  left: 10%;
+  -webkit-transform: rotate(-10deg);
+  -ms-transform: rotate(-10deg);
+  transform: rotate(-10deg);
+}
+.zoom-fab:after {
+  right: 10%;
+  -webkit-transform: rotate(10deg);
+  -ms-transform: rotate(10deg);
+  transform: rotate(10deg);
+} */
 
 .zoom-menu {
   position: absolute;
