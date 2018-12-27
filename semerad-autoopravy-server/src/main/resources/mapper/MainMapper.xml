@@ -216,6 +216,13 @@
         WHERE repair_id = #{repairId}
     </delete>
 
+    <select id="getCarRepairsById" resultMap="repairResultMap">
+        SELECT *
+        FROM repairs r
+        WHERE 1 = 1
+        AND r.car_id = #{carId}
+    </select>
+
 
     <!--///////////////////////////////////////Part detail///////////////////////////////////////////////////////////-->
 
@@ -249,6 +256,13 @@
         DELETE FROM parts
         WHERE part_id = #{partId}
     </delete>
+
+    <select id="getCarPartsById" resultMap="partResultMap">
+        SELECT *
+        FROM parts p
+        WHERE 1 = 1
+        AND car_id = #{carId}
+    </select>
 
 
     <!--///////////////////////////////////////Result Maps///////////////////////////////////////////////////////////-->

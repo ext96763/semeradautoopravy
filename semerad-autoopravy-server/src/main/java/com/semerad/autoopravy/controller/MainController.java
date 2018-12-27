@@ -28,7 +28,7 @@ public class MainController implements ErrorController {
     @Autowired
     private MainRepository mainRepository;
 
-    public MainController(@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")MainRepository mainRepository) {
+    public MainController(@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection") MainRepository mainRepository) {
         this.mainRepository = mainRepository;
     }
 
@@ -254,9 +254,12 @@ public class MainController implements ErrorController {
         return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
     }
 
-
-
-
+    /**
+     * Returns list of cars that are owned by requested user
+     *
+     * @param id of user
+     * @return list of cars
+     */
     @ApiOperation(value = "Find all cars for particular user", notes = "find all cars of user", produces = "application/json")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Success", response = MainController.class),
@@ -597,6 +600,25 @@ public class MainController implements ErrorController {
         return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
     }
 
+    /**
+     * Find all repairs for particular car
+     *
+     * @param id carID
+     * @return all repairs for picked car
+     */
+    @ApiOperation(value = "Find all repairs for particular car", notes = "find all repairs of car", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/carRepairs", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Repair> getCarRepairs(@RequestParam(value = "id", required = true) Integer id) {
+        return mainRepository.getCarRepairsById(id);
+    }
+
     //------------------------------------------PART endpoints----------------------------------------------------------
 
     /**
@@ -724,7 +746,30 @@ public class MainController implements ErrorController {
     }
 
     /**
+     * Find all parts for particular car
+     *
+     * @param id carID
+     * @return all bought parts for current car
+     */
+    @ApiOperation(value = "Find all parts for particular car", notes = "find all parts of car", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/carParts", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<SparePart> getCarParts(@RequestParam(value = "id", required = true) Integer id) {
+        return mainRepository.getCarPartsById(id);
+    }
+
+
+    //------------------------------------------TEST endpoints----------------------------------------------------------
+
+    /**
      * Method for testing FE
+     *
      * @return always 400, BAD_REQUEST
      */
     @ApiOperation(value = "Get Error Message", notes = "Error Message", produces = "application/json")
@@ -738,7 +783,7 @@ public class MainController implements ErrorController {
     @RequestMapping(value = "/getBadReq", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     ResponseEntity<SparePart> getBadReq() {
-        
+
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("TestBadReq", "true");
         logger.info("getBadReq called from API");

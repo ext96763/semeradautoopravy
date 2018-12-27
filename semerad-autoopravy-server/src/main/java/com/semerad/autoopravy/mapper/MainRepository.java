@@ -53,6 +53,8 @@ public interface MainRepository {
 
     void deleteCar(Integer id);
 
+    List<Repair> getCarRepairsById(@Param("carId") Integer id);
+
     //------------------------------------------------------------------------------------------------------------------
 
     //    @Select(value = "select * from repairs r  where 1=1 and r.repair_id=#{repairId}")
@@ -76,6 +78,8 @@ public interface MainRepository {
     void updatePart(SparePart sparePart);
 
     void deletePart(Integer id);
+
+    List<SparePart> getCarPartsById(@Param("carId") Integer id);
 
     //------------------------------------------------------------------------------------------------------------------
 
