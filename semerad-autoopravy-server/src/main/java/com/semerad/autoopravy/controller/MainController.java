@@ -193,7 +193,7 @@ public class MainController implements ErrorController {
         }
         responseHeaders.set("UserSaved", "true");
         logger.info("New user is saved. User ID: " + customer.getUserId());
-        return new ResponseEntity<>(customer, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(customer, responseHeaders, HttpStatus.OK);
     }
 
 
@@ -222,7 +222,7 @@ public class MainController implements ErrorController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("UserUpdated", "true");
         logger.info("User updated. User ID: " + customer.getUserId());
-        return new ResponseEntity<>(customer, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(customer, responseHeaders, HttpStatus.OK);
     }
 
 
@@ -377,7 +377,7 @@ public class MainController implements ErrorController {
         }
         responseHeaders.set("CarSaved", "true");
         logger.info("New car is saved. Car ID: " + car.getCarId());
-        return new ResponseEntity<>(car, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(car, responseHeaders, HttpStatus.OK);
     }
 
     /**
@@ -405,7 +405,7 @@ public class MainController implements ErrorController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("CarUpdated", "true");
         logger.info("Car updated. Car ID: " + car.getCarId());
-        return new ResponseEntity<>(car, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(car, responseHeaders, HttpStatus.OK);
     }
 
     /**
@@ -540,7 +540,7 @@ public class MainController implements ErrorController {
         }
         responseHeaders.set("RepairSaved", "true");
         logger.info("New repair is saved. Repair ID: " + repair.getRepairId());
-        return new ResponseEntity<>(repair, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(repair, responseHeaders, HttpStatus.OK);
     }
 
     /**
@@ -569,7 +569,7 @@ public class MainController implements ErrorController {
         }
         responseHeaders.set("RepairUpdated", "true");
         logger.info("Repair updated. Repair ID: " + repair.getRepairId());
-        return new ResponseEntity<>(repair, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(repair, responseHeaders, HttpStatus.OK);
     }
 
     /**
@@ -686,7 +686,7 @@ public class MainController implements ErrorController {
         }
         responseHeaders.set("SparePartSaved", "true");
         logger.info("New SparePart is saved. Repair ID: " + sparePart.getPartId());
-        return new ResponseEntity<>(sparePart, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(sparePart, responseHeaders, HttpStatus.OK);
     }
 
     /**
@@ -714,7 +714,7 @@ public class MainController implements ErrorController {
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set("SparePartUpdated", "true");
         logger.info("SparePart updated. SparePart ID: " + sparePart.getPartId());
-        return new ResponseEntity<>(sparePart, responseHeaders, HttpStatus.CREATED);
+        return new ResponseEntity<>(sparePart, responseHeaders, HttpStatus.OK);
     }
 
     /**
