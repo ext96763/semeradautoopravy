@@ -1,0 +1,50 @@
+<div style="height:100px"></div>
+
+<div class="row">
+  <div class="divGeneral" *ngFor="let item of items">
+    <div class="card-deck">
+      <div class="card card-shadow text-center mx-auto">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p><b>J&P: </b>{{item.userName}} {{item.userForeName}}
+            </p>
+          </h4>
+          <p class="card-text">
+            <b>Telefon: </b>{{item.userPhone}}
+          </p>
+          <p class="card-text">
+            <a>Email: {{item.userEmail}}</a>
+          </p>
+          <p class="card-text">
+            <a>Popis: </a> {{item.userDetail}}</p>
+          <div class="dropdown-divider"></div>
+          <p class="card-text"><small class="text-muted">
+              <div *ngIf="item.exist">
+                Aktivni, ID {{item.userId}}
+              </div>
+              <div *ngIf="!item.exist">
+                Neaktivni, {{item.userId}}
+              </div>
+            </small></p>
+          <div id="cardSpace"></div>
+          <div class="box">
+            <span>
+              <ul>
+                <li><a [routerLink]="[ '/userDetail', item.userId ]"><i class="fa fa-user fa-2x" aria-hidden="true" title="Detail uzivatele"></i></a></li>
+                <li><a [routerLink]="[ '/carDetail', item.carId ]"><i class="fa fa-car fa-2x" aria-hidden="true" title="Detail auta"></i></a></li>
+                <li><a [routerLink]="[ '/repairs', item.carId ]"><i class="fa fa-medkit fa-2x" aria-hidden="true" title="Opravy delane na aute"></i></a></li>
+                <li><a [routerLink]="[ '/parts', item.carId ]"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro dane auto"></i></a></li>
+              </ul>
+            </span>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a [routerLink]="[ '/userEdit', item.userId ]"><button class="btn-block" type="button" class="btn btn-outline-warning waves-effect  mr-1"
+              id="change">Upravit</button></a>
+          <button class="btn-block" type="button" style="margin-right:15px" style="margin-left:15px" class="btn btn-outline-danger btn-rounded waves-effect"
+            id="remove" (click)="removeUser(item.carId)">Smazat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="height:100px"></div>

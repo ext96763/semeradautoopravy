@@ -19,6 +19,7 @@ import { CarAddComponent } from './components/car/car-add/car-add.component';
 import { CarEditComponent } from './components/car/car-edit/car-edit.component';
 import { GlobalErrorHandler } from './components/error/global-error-handler.service';
 import { ErrorComponent } from './components/error/error.component';
+import { UserListComponent } from './components/user/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ErrorComponent } from './components/error/error.component';
     CarListComponent,
     CarAddComponent,
     CarEditComponent,
-    ErrorComponent
+    ErrorComponent,
+    UserListComponent
   ],
   imports: [
     AppRoutingModule,

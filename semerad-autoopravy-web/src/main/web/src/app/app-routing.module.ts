@@ -7,10 +7,12 @@ import { CarAddComponent } from 'src/app/components/car/car-add/car-add.componen
 import { CarEditComponent } from 'src/app/components/car/car-edit/car-edit.component';
 import { ErrorComponent } from 'src/app/components/error/error.component';
 
+import { UserListComponent } from './components/user/user-list/user-list.component';
+
 const routes: Routes = [
   { path: 'info', component: CarListComponent },
   { path: 'news', component: CarDetailComponent },
-  { path: 'customers', component: CarListComponent },
+  { path: 'customers', component: UserListComponent },
   { path: 'cars', component: CarListComponent },
   { path: 'repairs', component: CarListComponent },
   { path: 'parts', component: CarListComponent },

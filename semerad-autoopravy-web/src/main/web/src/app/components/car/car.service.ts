@@ -29,7 +29,7 @@ export class CarService {
     return this.http.post(this.CAR, car);
   }
 
-  // GET User Detail with all cars and repairs
+  // GET car detail with all repairs and parts
   getCarDetail(id): Observable<CarModel> {
     console.log('Car Detail ID called from API: ' + this.CAR_DETAIL + id);
     return this.http.get<CarModel>(this.CAR_DETAIL + id);
