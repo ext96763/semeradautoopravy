@@ -37,6 +37,8 @@ public interface MainRepository {
 
     void deleteUser(Integer id);
 
+    List<Car> getUserCarsById(@Param("carUserId") Integer id);
+
     //------------------------------------------------------------------------------------------------------------------
 
     //    @Select(value = "select * from cars c  where 1=1 and c.car_id=#{carId}")

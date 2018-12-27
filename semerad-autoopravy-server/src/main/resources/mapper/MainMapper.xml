@@ -141,6 +141,12 @@
         WHERE 1 = 1 AND c.car_id = #{carId};
     </select>
 
+    <select id="getUserCarsById" resultMap="carResultMap">
+        SELECT *
+        FROM cars c WHERE 1 = 1
+        AND c.car_user_id = #{carUserId};
+    </select>
+
     <insert id="insertCar" parameterType="com.semerad.autoopravy.model.Car"
             useGeneratedKeys="true" keyProperty="carId" keyColumn="car_id">
         INSERT INTO cars (win, spz, km, car_info, end_date_error, feature_repair_date, done_work, exist, buyed_parts, car_user_id, start_date_error)

@@ -88,7 +88,9 @@ public class MainController implements ErrorController {
     List<SparePart> getAllParts() {
         return mainRepository.getAllParts();
     }
-    //------------------------------------------------------------------------------------------------------------------
+
+
+    //----------------------------------------USER endpoints------------------------------------------------------------
 
     /**
      * User By ID [GET]
@@ -250,6 +252,22 @@ public class MainController implements ErrorController {
         responseHeaders.set("UserDeleted", "true");
         logger.info("User Deleted. User ID: " + id);
         return new ResponseEntity<>(responseHeaders, HttpStatus.OK);
+    }
+
+
+
+
+    @ApiOperation(value = "Find all cars for particular user", notes = "find all cars of user", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/userCars", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Car> getUserCars(@RequestParam(value = "id", required = true) Integer id) {
+        return mainRepository.getUserCarsById(id);
     }
 
 
