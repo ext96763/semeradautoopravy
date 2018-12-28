@@ -20,6 +20,14 @@ import { CarEditComponent } from './components/car/car-edit/car-edit.component';
 import { GlobalErrorHandler } from './components/error/global-error-handler.service';
 import { ErrorComponent } from './components/error/error.component';
 import { UserListComponent } from './components/user/user-list/user-list.component';
+import { CarPartsComponent } from './components/car/car-parts/car-parts.component';
+import { CarRepairsComponent } from './components/car/car-repairs/car-repairs.component';
+import { UserDetailComponent } from './components/user/user-detail/user-detail.component';
+import { UserAddComponent } from './components/user/user-add/user-add.component';
+import { UserEditComponent } from './components/user/user-edit/user-edit.component';
+import { UserCarsComponent } from './components/user/user-cars/user-cars.component';
+import { UserRepairsComponent } from './components/user/user-repairs/user-repairs.component';
+import { UserPartsComponent } from './components/user/user-parts/user-parts.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +37,15 @@ import { UserListComponent } from './components/user/user-list/user-list.compone
     CarAddComponent,
     CarEditComponent,
     ErrorComponent,
-    UserListComponent
+    UserListComponent,
+    CarPartsComponent,
+    CarRepairsComponent,
+    UserDetailComponent,
+    UserAddComponent,
+    UserEditComponent,
+    UserCarsComponent,
+    UserRepairsComponent,
+    UserPartsComponent
   ],
   imports: [
     AppRoutingModule,

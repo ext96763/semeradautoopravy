@@ -123,7 +123,7 @@ public class MainController implements ErrorController {
             responseHeaders.set("UserFound", "true");
             logger.info("User found ID: " + id);
         }
-        return new ResponseEntity<>(customer, responseHeaders, HttpStatus.FOUND);
+        return new ResponseEntity<>(customer, responseHeaders, HttpStatus.OK);
     }
 
     /**

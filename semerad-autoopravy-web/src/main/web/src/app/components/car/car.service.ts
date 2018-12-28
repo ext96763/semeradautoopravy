@@ -5,6 +5,8 @@ import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpHeaders } 
 import { CarList } from 'src/app/models/CarList';
 import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
+import { SparePartModel } from 'src/app/models/SparePartModel';
+import { RepairList } from 'src/app/models/RepairList';
 
 const APIEndpoint = environment.APIEndpoint;
 
@@ -18,6 +20,8 @@ export class CarService {
   CAR_BY_ID = APIEndpoint + '/car?id=';
   CAR = APIEndpoint + '/car';
   CAR_REMOVE = APIEndpoint + '/car?id=';
+  CAR_PARTS = APIEndpoint + '/carParts?id=';
+  CAR_REPAIRS = APIEndpoint + '/carRepairs?id=';
 
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -57,6 +61,18 @@ export class CarService {
   updateCar(car: CarModel) {
     console.log('Updating car from Service to DB, ID: ' + this.CAR + ' data:' + JSON.stringify(car));
     return this.http.put(this.CAR, car);
+  }
+
+  // GET car parts for current car
+  getCarParts(id): Observable<SparePartModel> {
+    console.log('Endpoint getCarParts called from API for carID: ' + this.CAR_PARTS + id);
+    return this.http.get<SparePartModel>(this.CAR_PARTS + id);
+  }
+
+  // GET car repairs for current car
+  getCarRepairs(id): Observable<RepairList> {
+    console.log('Endpoint /carRepairs called from API for carID: ' + this.CAR_REPAIRS + id);
+    return this.http.get<RepairList>(this.CAR_REPAIRS + id);
   }
 
 }

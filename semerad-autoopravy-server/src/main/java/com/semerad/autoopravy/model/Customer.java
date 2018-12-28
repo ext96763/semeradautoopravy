@@ -1,8 +1,10 @@
 package com.semerad.autoopravy.model;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Collection;
+import java.util.Date;
 
 
 public class Customer {
@@ -29,11 +31,22 @@ public class Customer {
     private String userEmail;
 
     @JsonProperty
+    private boolean exists;
+
+    @JsonProperty
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+    private Date startDate;
+
+    @JsonProperty
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
+    private Date endDate;
+
+    @JsonProperty
     private Collection<Car> cars;
 
     public Customer(){};
 
-    public Customer(Long userId, String userName, String userForeName, Long userRc, String userDetail, Long userPhone, String userEmail, Collection<Car> cars) {
+    public Customer(Long userId, String userName, String userForeName, Long userRc, String userDetail, Long userPhone, String userEmail, boolean exists, Date startDate, Date endDate, Collection<Car> cars) {
         this.userId = userId;
         this.userName = userName;
         this.userForeName = userForeName;
@@ -41,6 +54,9 @@ public class Customer {
         this.userDetail = userDetail;
         this.userPhone = userPhone;
         this.userEmail = userEmail;
+        this.exists = exists;
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.cars = cars;
     }
 
@@ -100,6 +116,30 @@ public class Customer {
         this.userEmail = userEmail;
     }
 
+    public boolean isExists() {
+        return exists;
+    }
+
+    public void setExists(boolean exists) {
+        this.exists = exists;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
     public Collection<Car> getCars() {
         return cars;
     }
@@ -118,6 +158,9 @@ public class Customer {
                 ", userDetail='" + userDetail + '\'' +
                 ", userPhone=" + userPhone +
                 ", userEmail='" + userEmail + '\'' +
+                ", exists=" + exists +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 ", cars=" + cars +
                 '}';
     }

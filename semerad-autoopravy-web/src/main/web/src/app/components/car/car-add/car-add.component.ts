@@ -13,12 +13,12 @@ export class CarAddComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder, private router: Router, private carService: CarService) { }
 
-  addForm: FormGroup;
+  addCarForm: FormGroup;
   public repairsArray: any[] = [];
 
   ngOnInit() {
 
-    this.addForm = this.formBuilder.group({
+    this.addCarForm = this.formBuilder.group({
       carId: [],
       carUserId: [],
       win: [],
@@ -47,9 +47,9 @@ export class CarAddComponent implements OnInit {
       timer: 1500
     });
 
-    this.carService.createCar(this.addForm.value)
+    this.carService.createCar(this.addCarForm.value)
       .subscribe(data => {
-        console.log('Component ADD to service addForm value: ' + this.addForm.value);
+        console.log('Component ADD to service addCarForm value: ' + this.addCarForm.value);
         this.router.navigate(['cars']);
       });
   }

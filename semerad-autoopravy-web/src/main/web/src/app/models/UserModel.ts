@@ -10,6 +10,9 @@ export class UserModel implements Deserializable<UserModel> {
   userDetail: string;
   userPhone: number;
   userEmail: string;
+  exists: boolean;
+  startDate: Date;
+  endDate: Date;
   cars: CarModel;
 
   deserialize(input: any): UserModel {
@@ -32,7 +35,7 @@ export class UserModel implements Deserializable<UserModel> {
   }
 
   constructor(userId: number, userName: string, userForeName: string, userRc: number, userDetail: string,
-    userPhone: number, userEmail: string, cars: CarModel) {
+    userPhone: number, userEmail: string, exists: boolean, startDate: Date, endDate: Date, cars: CarModel) {
     this.userId = userId;
     this.userName = userName;
     this.userForeName = userForeName;
@@ -40,6 +43,9 @@ export class UserModel implements Deserializable<UserModel> {
     this.userDetail = userDetail;
     this.userPhone = userPhone;
     this.userEmail = userEmail;
+    this.exists = exists;
+    this.startDate = startDate;
+    this.endDate = endDate;
     this.cars = cars;
   }
 }

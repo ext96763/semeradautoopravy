@@ -28,8 +28,8 @@ export class UserListComponent implements OnInit {
       text: 'Operace je nevratna',
       type: 'warning',
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
       confirmButtonText: 'Ano, smazat',
       cancelButtonText: 'Nemazat'
     }).then((result) => {
