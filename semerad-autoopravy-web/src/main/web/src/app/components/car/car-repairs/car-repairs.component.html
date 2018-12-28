@@ -1,0 +1,21 @@
+<div class="container main-secction">
+  <div class="col-xs-6 divGeneral" *ngFor="let item of items">
+    <h2>
+      Opravy delane na konkretnim (vybranem) aute
+    </h2>
+    <h1>
+      <b>CarID</b> {{item.carId}}
+    </h1>
+    <h2>
+      <b>repairUserId</b>{{item.repairUserId}}
+    </h2>
+  </div>
+</div>
+
+<div class="box box-default">
+    <code>
+        <pre>{{items |json}}</pre>
+    </code>
+</div>
+
+<div style="height:180px"></div>
