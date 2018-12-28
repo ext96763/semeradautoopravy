@@ -1,5 +1,5 @@
 import { Deserializable } from '../Utils/deserializable';
-import { SparePartModel } from './SparePartModel';
+import { Part } from './Part';
 
 export class RepairModel implements Deserializable<RepairModel> {
 
@@ -11,19 +11,19 @@ export class RepairModel implements Deserializable<RepairModel> {
   endOfRepair: Date;
   techCheck: Boolean;
   oil: Boolean;
-  sparePart: SparePartModel;
+  parts: Part;
 
   deserialize(input: any): RepairModel {
     Object.assign(this, input);
-    this.sparePart = new SparePartModel(
-      this.sparePart.partId,
-      this.sparePart.repairId,
-      this.sparePart.carId,
-      this.sparePart.partNumber,
-      this.sparePart.partDetail,
-      this.sparePart.repairDate,
-      this.sparePart.partUserId
-    ).deserialize(input.sparePart);
+    this.parts = new Part(
+      this.parts.partId,
+      this.parts.repairId,
+      this.parts.carId,
+      this.parts.partNumber,
+      this.parts.partDetail,
+      this.parts.repairDate,
+      this.parts.partUserId
+    ).deserialize(input.parts);
     return this;
   }
 
@@ -35,7 +35,7 @@ export class RepairModel implements Deserializable<RepairModel> {
     endOfRepair: Date,
     techCheck: Boolean,
     oil: Boolean,
-    sparePart: SparePartModel) {
+    parts: Part) {
     this.carId = carId;
     this.repairUserId = repairUserId;
     this.repairs = repairs;
@@ -43,7 +43,7 @@ export class RepairModel implements Deserializable<RepairModel> {
     this.endOfRepair = endOfRepair;
     this.techCheck = techCheck;
     this.oil = oil;
-    this.sparePart = sparePart;
+    this.parts = parts;
   }
 
 }

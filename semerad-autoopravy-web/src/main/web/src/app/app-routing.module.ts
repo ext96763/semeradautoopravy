@@ -18,27 +18,50 @@ import { UserPartsComponent } from './components/user/user-parts/user-parts.comp
 import { UserEditComponent } from './components/user/user-edit/user-edit.component';
 import { UserAddComponent } from './components/user/user-add/user-add.component';
 
+import { RepairListComponent } from './components/repair/repair-list/repair-list.component';
+import { RepairEditComponent } from './components/repair/repair-edit/repair-edit.component';
+import { RepairAddComponent } from './components/repair/repair-add/repair-add.component';
+import { RepairDetailComponent } from './components/repair/repair-detail/repair-detail.component';
+import { RepairPartsComponent } from './components/repair/repair-parts/repair-parts.component';
+
+import { PartAddComponent } from './components/part/part-add/part-add.component';
+import { PartDetailComponent } from './components/part/part-detail/part-detail.component';
+import { PartEditComponent } from './components/part/part-edit/part-edit.component';
+import { PartListComponent } from './components/part/part-list/part-list.component';
+
 const routes: Routes = [
   { path: 'info', component: CarListComponent },
   { path: 'news', component: CarDetailComponent },
   { path: 'customers', component: UserListComponent },
   { path: 'cars', component: CarListComponent },
-  { path: 'repairs', component: CarListComponent },
-  { path: 'parts', component: CarListComponent },
+  { path: 'repairs', component: RepairListComponent },
+  { path: 'parts', component: PartListComponent },
+
   { path: 'error', component: ErrorComponent },
+
   { path: 'addUser', component: UserAddComponent },
   { path: 'addCar', component: CarAddComponent },
-  { path: 'addRepair', component: CarAddComponent },
-  { path: 'addPart', component: CarAddComponent },
+  { path: 'addRepair', component: RepairAddComponent },
+  { path: 'addPart', component: PartAddComponent },
+
   { path: 'userDetail/:id', component: UserDetailComponent },
   { path: 'userEdit/:id', component: UserEditComponent},
   { path: 'userCars/:id', component: UserCarsComponent },
   { path: 'userRepairs/:id', component: UserRepairsComponent },
   { path: 'userParts/:id', component: UserPartsComponent },
+
   { path: 'carDetail/:id', component: CarDetailComponent },
   { path: 'carParts/:id', component: CarPartsComponent },
   { path: 'carRepairs/:id', component: CarRepairsComponent },
   { path: 'carEdit/:id', component: CarEditComponent},
+
+  { path: 'repairEdit/:id', component: RepairEditComponent},
+  { path: 'repairDetail/:id', component: RepairDetailComponent},
+  { path: 'repairParts/:id', component: RepairPartsComponent },
+
+  { path: 'partEdit/:id', component: PartEditComponent},
+  { path: 'partDetail/:id', component: PartDetailComponent},
+
   { path: 'repairs/:id', component: CarDetailComponent },
   { path: 'parts/:id', component: CarDetailComponent },
   { path: '#/', component: CarListComponent },

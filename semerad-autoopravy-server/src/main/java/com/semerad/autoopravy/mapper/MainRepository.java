@@ -4,7 +4,7 @@ package com.semerad.autoopravy.mapper;
 import com.semerad.autoopravy.model.Car;
 import com.semerad.autoopravy.model.Customer;
 import com.semerad.autoopravy.model.Repair;
-import com.semerad.autoopravy.model.SparePart;
+import com.semerad.autoopravy.model.Part;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,7 +23,7 @@ public interface MainRepository {
 
     List<Repair> getAllRepairs();
 
-    List<SparePart> getAllParts();
+    List<Part> getAllParts();
 
     //------------------------------------------------------------------------------------------------------------------
 
@@ -75,15 +75,15 @@ public interface MainRepository {
 
     //------------------------------------------------------------------------------------------------------------------
 
-    SparePart getPartById(@Param("partId") Integer id);
+    Part getPartById(@Param("partId") Integer id);
 
-    void insertPart(SparePart sparePart);
+    void insertPart(Part part);
 
-    void updatePart(SparePart sparePart);
+    void updatePart(Part part);
 
     void deletePart(Integer id);
 
-    List<SparePart> getCarPartsById(@Param("carId") Integer id);
+    List<Part> getCarPartsById(@Param("carId") Integer id);
 
     //------------------------------------------------------------------------------------------------------------------
 

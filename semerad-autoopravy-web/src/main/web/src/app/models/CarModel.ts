@@ -27,7 +27,7 @@ export class CarModel implements Deserializable<CarModel> {
       this.repairs.endOfRepair,
       this.repairs.techCheck,
       this.repairs.oil,
-      this.repairs.sparePart).deserialize(input.repairs);
+      this.repairs.parts).deserialize(input.repairs);
     return this;
   }
 

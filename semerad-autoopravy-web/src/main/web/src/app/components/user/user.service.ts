@@ -60,7 +60,7 @@ export class UserService {
   }
 
   // Update user in DB
-  updateCar(user: UserModel) {
+  updateUser(user: UserModel) {
     console.log('Updating user from Service to DB, ID: ' + this.USER + ' data:' + JSON.stringify(user));
     return this.http.put(this.USER, user);
   }

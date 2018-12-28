@@ -1,3 +1,5 @@
+import { Deserializable } from '../Utils/deserializable';
+
 export class Part {
 
   partId: number;
@@ -7,6 +9,11 @@ export class Part {
   partDetail: String;
   repairDate: Date;
   partUserId: number;
+
+  deserialize(input: any): Part {
+    Object.assign(this, input);
+    return this;
+  }
 
   constructor(partId: number,
     repairId: number,

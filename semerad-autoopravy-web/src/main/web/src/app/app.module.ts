@@ -28,6 +28,15 @@ import { UserEditComponent } from './components/user/user-edit/user-edit.compone
 import { UserCarsComponent } from './components/user/user-cars/user-cars.component';
 import { UserRepairsComponent } from './components/user/user-repairs/user-repairs.component';
 import { UserPartsComponent } from './components/user/user-parts/user-parts.component';
+import { RepairDetailComponent } from './components/repair/repair-detail/repair-detail.component';
+import { RepairAddComponent } from './components/repair/repair-add/repair-add.component';
+import { RepairEditComponent } from './components/repair/repair-edit/repair-edit.component';
+import { RepairListComponent } from './components/repair/repair-list/repair-list.component';
+import { RepairPartsComponent } from './components/repair/repair-parts/repair-parts.component';
+import { PartListComponent } from './components/part/part-list/part-list.component';
+import { PartAddComponent } from './components/part/part-add/part-add.component';
+import { PartEditComponent } from './components/part/part-edit/part-edit.component';
+import { PartDetailComponent } from './components/part/part-detail/part-detail.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +54,16 @@ import { UserPartsComponent } from './components/user/user-parts/user-parts.comp
     UserEditComponent,
     UserCarsComponent,
     UserRepairsComponent,
-    UserPartsComponent
+    UserPartsComponent,
+    RepairDetailComponent,
+    RepairAddComponent,
+    RepairEditComponent,
+    RepairListComponent,
+    RepairPartsComponent,
+    PartListComponent,
+    PartAddComponent,
+    PartEditComponent,
+    PartDetailComponent
   ],
   imports: [
     AppRoutingModule,

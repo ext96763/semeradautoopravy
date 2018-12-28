@@ -1,5 +1,5 @@
 import { Deserializable } from '../Utils/deserializable';
-import { SparePartModel } from './SparePartModel';
+import { Part } from './Part';
 
 export class RepairList {
 
@@ -11,7 +11,7 @@ export class RepairList {
   endOfRepair: Date;
   techCheck: Boolean;
   oil: Boolean;
-  sparePart: number;
+  parts: number;
 
   constructor(repairId: number,
     carId: number,
@@ -21,7 +21,7 @@ export class RepairList {
     endOfRepair: Date,
     techCheck: Boolean,
     oil: Boolean,
-    sparePart: number) {
+    parts: number) {
     this.carId = carId;
     this.repairUserId = repairUserId;
     this.repairs = repairs;
@@ -29,7 +29,7 @@ export class RepairList {
     this.endOfRepair = endOfRepair;
     this.techCheck = techCheck;
     this.oil = oil;
-    this.sparePart = sparePart;
+    this.parts = parts;
   }
 
 }

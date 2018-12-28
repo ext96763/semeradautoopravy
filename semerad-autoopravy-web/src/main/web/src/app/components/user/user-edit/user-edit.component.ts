@@ -51,7 +51,7 @@ export class UserEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.updateCar(this.editUserForm.value)
+    this.userService.updateUser(this.editUserForm.value)
       .pipe(first())
       .subscribe(
         data => {

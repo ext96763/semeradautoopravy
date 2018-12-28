@@ -34,11 +34,11 @@ public class Repair {
     @JsonProperty
     private Boolean oil;
 
-    private Collection<SparePart> parts;
+    private Collection<Part> parts;
 
     public Repair(){};
 
-    public Repair(Long repairId, Long carId, Long repairUserId, String repairs, Date startOfRepair, Date endOfRepair, Boolean techCheck, Boolean oil, Collection<SparePart> parts) {
+    public Repair(Long repairId, Long carId, Long repairUserId, String repairs, Date startOfRepair, Date endOfRepair, Boolean techCheck, Boolean oil, Collection<Part> parts) {
         this.repairId = repairId;
         this.carId = carId;
         this.repairUserId = repairUserId;
@@ -114,11 +114,11 @@ public class Repair {
         this.oil = oil;
     }
 
-    public Collection<SparePart> getParts() {
+    public Collection<Part> getParts() {
         return parts;
     }
 
-    public void setParts(Collection<SparePart> parts) {
+    public void setParts(Collection<Part> parts) {
         this.parts = parts;
     }
 

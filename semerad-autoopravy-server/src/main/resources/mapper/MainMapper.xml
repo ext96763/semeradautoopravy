@@ -244,7 +244,7 @@
         ORDER BY p.part_id DESC
     </select>
 
-    <insert id="insertPart" parameterType="com.semerad.autoopravy.model.SparePart"
+    <insert id="insertPart" parameterType="com.semerad.autoopravy.model.Part"
             useGeneratedKeys="true" keyProperty="partId" keyColumn="part_id">
         INSERT INTO parts (part_number, part_detail, repair_date, part_user_id, car_id, repair_id)
         VALUES (#{partNumber}, #{partDetail}, #{repairDate}, #{partUserId}, #{carId}, #{repairId})
@@ -325,7 +325,7 @@
         <collection property="parts" resultMap="partResultMap"/>
     </resultMap>
 
-    <resultMap id="partResultMap" type="com.semerad.autoopravy.model.SparePart">
+    <resultMap id="partResultMap" type="com.semerad.autoopravy.model.Part">
         <result property="partId" column="part_id"/>
         <result property="partUserId" column="part_user_id"/>
         <result property="partNumber" column="part_number"/>
