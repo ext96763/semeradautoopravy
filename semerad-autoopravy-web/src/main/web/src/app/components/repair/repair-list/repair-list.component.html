@@ -1,0 +1,53 @@
+<div style="height:100px"></div>
+
+<div class="row">
+  <div class="divGeneral" *ngFor="let item of items">
+    <div class="card-deck">
+      <div class="card card-shadow text-center mx-auto">
+        <div class="card-body">
+          <h4 class="card-title">
+            <p><b>Popis opravy & cislo: </b>{{item.repairs}}{{item.repairId}}
+            </p>
+          </h4>
+          <p class="card-text">
+            <b>Datum opravy: </b>{{item.startOfRepair}}
+          </p>
+          <p class="card-text">
+            <a>Datum konce opravy: {{item.endOfRepair}}</a>
+          </p>
+          <p class="card-text">
+            <a>Olej Ano/Ne: </a> {{item.oil}}</p>
+          <div class="dropdown-divider"></div>
+          <p class="card-text"><small class="text-muted">
+              <div *ngIf="item.techCheck">
+                <b>Technicka: MA</b>
+              </div>
+              <div *ngIf="!item.techCheck">
+                <b>Technicka: NEMA</b>
+              </div>
+            </small></p>
+          <div id="cardSpace"></div>
+          <div class="box">
+            <span>
+              <ul>
+                <li><a [routerLink]="[ '/userDetail', item.repairUserId ]"><i class="fa fa-user fa-2x" aria-hidden="true" title="Detail uzivatele kteremu patri oprava"></i></a></li>
+                <li><a [routerLink]="[ '/carDetail', item.carId ]"><i class="fa fa-car fa-2x" aria-hidden="true" title="Auto na kterem byla oprava provadena"></i></a></li>
+                <li><a [routerLink]="[ '/repairDetail', item.repairId ]"><i class="fa fa-medkit fa-2x" aria-hidden="true" title="Detail opravy"></i></a></li>
+                <li><a [routerLink]="[ '/repairParts', item.repairId ]"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro danou opravu"></i></a></li>
+              </ul>
+            </span>
+          </div>
+          <div class="dropdown-divider"></div>
+          <a [routerLink]="[ '/repairEdit', item.repairId ]"><button class="btn-block" type="button" class="btn btn-outline-warning waves-effect  mr-1"
+              id="change">Upravit</button></a>
+          <button class="btn-block" type="button" style="margin-right:15px" style="margin-left:15px" class="btn btn-outline-danger btn-rounded waves-effect"
+            id="remove" (click)="removeRepair(item.repairId)">Smazat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="height:100px"></div>
+
+
+{{items | json}}

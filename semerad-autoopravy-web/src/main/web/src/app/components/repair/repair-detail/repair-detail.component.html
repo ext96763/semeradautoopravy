@@ -1,0 +1,18 @@
+<div class="container main-secction">
+  <div class="col-xs-6 divGeneral" *ngFor="let item of items">
+    <h2>
+      Detail Opravy
+    </h2>
+    <h1>
+      <b>ID opravy</b> {{item.repairId}}
+    </h1>
+  </div>
+</div>
+
+<div class="box box-default">
+    <code>
+        <pre>{{items | json}}</pre>
+    </code>
+</div>
+
+<div style="height:180px"></div>
