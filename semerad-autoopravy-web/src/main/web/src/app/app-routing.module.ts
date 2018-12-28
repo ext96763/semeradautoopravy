@@ -57,7 +57,7 @@ const routes: Routes = [
 
   { path: 'repairEdit/:id', component: RepairEditComponent},
   { path: 'repairDetail/:id', component: RepairDetailComponent},
-  { path: 'repairParts/:id', component: RepairPartsComponent },
+  { path: 'partRepairs/:id', component: RepairPartsComponent},
 
   { path: 'partEdit/:id', component: PartEditComponent},
   { path: 'partDetail/:id', component: PartDetailComponent},

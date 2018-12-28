@@ -33,7 +33,7 @@
                 <li><a [routerLink]="[ '/userDetail', item.repairUserId ]"><i class="fa fa-user fa-2x" aria-hidden="true" title="Detail uzivatele kteremu patri oprava"></i></a></li>
                 <li><a [routerLink]="[ '/carDetail', item.carId ]"><i class="fa fa-car fa-2x" aria-hidden="true" title="Auto na kterem byla oprava provadena"></i></a></li>
                 <li><a [routerLink]="[ '/repairDetail', item.repairId ]"><i class="fa fa-medkit fa-2x" aria-hidden="true" title="Detail opravy"></i></a></li>
-                <li><a [routerLink]="[ '/repairParts', item.repairId ]"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro danou opravu"></i></a></li>
+                <li><a [routerLink]="[ '/partRepairs', item.repairId ]"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro danou opravu"></i></a></li>
               </ul>
             </span>
           </div>
@@ -48,6 +48,3 @@
   </div>
 </div>
 <div style="height:100px"></div>
-
-
-{{items | json}}

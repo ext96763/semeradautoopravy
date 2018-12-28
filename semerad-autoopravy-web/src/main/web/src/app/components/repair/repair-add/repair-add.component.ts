@@ -14,7 +14,7 @@ export class RepairAddComponent implements OnInit {
   constructor(private formBuilder: FormBuilder, private router: Router, private repairService: RepairService) { }
 
   addRepairForm: FormGroup;
-  public sparePartArray: any[] = [];
+  public partsArray: any[] = [];
 
   ngOnInit() {
 
@@ -27,7 +27,7 @@ export class RepairAddComponent implements OnInit {
       endOfRepair: [],
       techCheck: [],
       oil: [],
-      sparePart: [this.sparePartArray]
+      parts: [this.partsArray]
     });
 
   }

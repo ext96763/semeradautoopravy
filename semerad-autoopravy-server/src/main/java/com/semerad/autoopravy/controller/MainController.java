@@ -801,6 +801,24 @@ public class MainController implements ErrorController {
         return mainRepository.getCarPartsById(id);
     }
 
+    /**
+     * Find all parts for particular repair
+     * @param id repairId
+     * @return list of parts
+     */
+    @ApiOperation(value = "Find all parts for particular repair", notes = "find all parts of repair", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/partRepairs", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Part> getPartRepairs(@RequestParam(value = "id", required = true) Integer id) {
+        return mainRepository.getPartRepairsById(id);
+    }
+
 
     //------------------------------------------TEST endpoints----------------------------------------------------------
 

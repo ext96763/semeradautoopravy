@@ -34,6 +34,13 @@
         ORDER BY p.part_id DESC
     </select>
 
+    <select id="getPartRepairsById" resultMap="partResultMap">
+        SELECT *
+        FROM parts p
+        WHERE 1 = 1
+        AND repair_id = #{repairId}
+    </select>
+
 
     <!--//////////////////////Find user by parameters////////////////////////////////////////////////////////////////-->
 

@@ -85,6 +85,8 @@ public interface MainRepository {
 
     List<Part> getCarPartsById(@Param("carId") Integer id);
 
+    List<Part> getPartRepairsById(@Param("repairId") Integer id);
+
     //------------------------------------------------------------------------------------------------------------------
 
 }

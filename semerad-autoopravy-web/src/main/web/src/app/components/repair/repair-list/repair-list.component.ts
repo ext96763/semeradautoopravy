@@ -3,6 +3,7 @@ import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
 import { RepairService } from '../repair.service';
 import Swal from 'sweetalert2';
 import { RepairList } from 'src/app/models/RepairList';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-repair-list',
@@ -14,10 +15,13 @@ export class RepairListComponent implements OnInit {
   items: Array<RepairList>;
   id: any;
 
-  constructor(private repairService: RepairService,
+  constructor(private repairService: RepairService, private activeRoute: ActivatedRoute,
     private spinnerService: Ng4LoadingSpinnerService, private generalService: RepairService) { }
 
   ngOnInit() {
+    const queryParams = this.activeRoute.snapshot.queryParams;
+    const routeParams = this.activeRoute.snapshot.params;
+    this.id = routeParams.id;
     this.getRepairList();
   }
 
@@ -61,7 +65,7 @@ export class RepairListComponent implements OnInit {
     this.spinnerService.show();
     this.repairService.getRepairList().subscribe(data => {
       this.items = data;
-      // console.log('repairList service response: ' + JSON.stringify(this.items));
+      console.log('repairList service response: ' + JSON.stringify(this.items));
       this.spinnerService.hide();
     });
   }

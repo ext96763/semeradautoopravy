@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
 import { RepairList } from 'src/app/models/RepairList';
 import { SparePartModel } from 'src/app/models/SparePartModel';
+import { Part } from 'src/app/models/Part';
 
 const APIEndpoint = environment.APIEndpoint;
 
@@ -21,6 +22,7 @@ export class RepairService {
   REPAIR_REMOVE = APIEndpoint + '/repair?id=';
   USER_PARTS = APIEndpoint + '/userParts?id=';
   USER_CARS = APIEndpoint + '/userCars?id=';
+  PARTS_BY_REPAIR_ID = APIEndpoint + '/partRepairs?id=';
 
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -48,6 +50,12 @@ export class RepairService {
   getRepairList(): Observable<Array<RepairList>> {
     console.log('RepairList called from API. Path: ' + this.REPAIRS);
     return this.http.get<Array<RepairList>>(this.REPAIRS);
+  }
+
+  // GET part list for particular repair
+  getPartList(id): Observable<Array<Part>> {
+    console.log('PartList called from API. Path: ' + this.PARTS_BY_REPAIR_ID + id);
+    return this.http.get<Array<Part>>(this.PARTS_BY_REPAIR_ID + id);
   }
 
   // Remove repair from DB
