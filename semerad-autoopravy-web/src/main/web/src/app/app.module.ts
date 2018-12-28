@@ -37,6 +37,8 @@ import { PartListComponent } from './components/part/part-list/part-list.compone
 import { PartAddComponent } from './components/part/part-add/part-add.component';
 import { PartEditComponent } from './components/part/part-edit/part-edit.component';
 import { PartDetailComponent } from './components/part/part-detail/part-detail.component';
+import { TaskListComponent } from './components/task/task-list/task-list.component';
+import { InfoComponent } from './components/info/info/info.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +65,9 @@ import { PartDetailComponent } from './components/part/part-detail/part-detail.c
     PartListComponent,
     PartAddComponent,
     PartEditComponent,
-    PartDetailComponent
+    PartDetailComponent,
+    TaskListComponent,
+    InfoComponent
   ],
   imports: [
     AppRoutingModule,

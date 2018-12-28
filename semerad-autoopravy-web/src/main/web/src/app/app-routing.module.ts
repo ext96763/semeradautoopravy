@@ -31,7 +31,8 @@ import { PartListComponent } from './components/part/part-list/part-list.compone
 
 const routes: Routes = [
   { path: 'info', component: CarListComponent },
-  { path: 'news', component: CarDetailComponent },
+  { path: 'tasks', component: CarListComponent },
+  
   { path: 'customers', component: UserListComponent },
   { path: 'cars', component: CarListComponent },
   { path: 'repairs', component: RepairListComponent },
