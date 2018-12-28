@@ -73,7 +73,7 @@ public class MainController implements ErrorController {
     @RequestMapping(value = "/repairs", method = RequestMethod.GET, produces = "application/json")
     public @ResponseBody
     List<Repair> getAllRepairs() {
-        logger.info("Repair list called. Resp: " + String.valueOf(mainRepository.getAllRepairs()));
+        logger.info("Repair list called. Why carId is null? Resp: " + String.valueOf(mainRepository.getAllRepairs()));
         return mainRepository.getAllRepairs();
     }
 
@@ -659,6 +659,42 @@ public class MainController implements ErrorController {
     //------------------------------------------PART endpoints----------------------------------------------------------
 
     /**
+     * Part DETAIL By ID [GET]
+     *
+     * @param id unique part ID
+     * @return Particular part in JSON
+     */
+    @ApiOperation(value = "Find part detail by ID", notes = "Look for part detail by ID", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/part/detail", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    ResponseEntity<Part> getPartDetailById(@RequestParam(value = "id", required = true) Integer id) {
+        Part partDetail = new Part();
+        HttpHeaders responseHeaders = new HttpHeaders();
+        try {
+            partDetail = mainRepository.getPartDetailById(id);
+        } catch (Exception e) {
+            logger.error("Cannot find in DB part with ID: " + id);
+            responseHeaders.set("PartDetailFound", "false");
+            return new ResponseEntity<>(responseHeaders, HttpStatus.NOT_FOUND);
+        }
+        if (partDetail == null) {
+            logger.error("No matches in DB for partId: " + id + " wasn't found");
+            responseHeaders.set("PartDetailFound", "false");
+            return new ResponseEntity<>(responseHeaders, HttpStatus.NOT_FOUND);
+        } else {
+            responseHeaders.set("PartDetailFound", "true");
+            logger.info("PartDetailFound found ID: " + id);
+        }
+        return new ResponseEntity<>(partDetail, responseHeaders, HttpStatus.OK);
+    }
+
+    /**
      * Part By ID [GET]
      *
      * @return Particular Part in JSON
@@ -689,7 +725,7 @@ public class MainController implements ErrorController {
             responseHeaders.set("SparePartFound", "true");
             logger.info("Part found ID: " + id);
         }
-        return new ResponseEntity<>(part, responseHeaders, HttpStatus.FOUND);
+        return new ResponseEntity<>(part, responseHeaders, HttpStatus.OK);
     }
 
     /**

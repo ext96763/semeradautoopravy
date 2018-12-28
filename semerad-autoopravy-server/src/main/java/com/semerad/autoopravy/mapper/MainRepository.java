@@ -75,6 +75,8 @@ public interface MainRepository {
 
     //------------------------------------------------------------------------------------------------------------------
 
+    Part getPartDetailById(@Param("partId") Integer id);
+
     Part getPartById(@Param("partId") Integer id);
 
     void insertPart(Part part);

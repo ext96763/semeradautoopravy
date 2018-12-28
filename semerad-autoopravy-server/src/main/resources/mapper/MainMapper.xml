@@ -243,6 +243,13 @@
 
     <!--///////////////////////////////////////Part detail///////////////////////////////////////////////////////////-->
 
+    <select id="getPartDetailById" resultMap="partResultMap">
+        SELECT * FROM parts p WHERE 1=1
+        <if test="partId != null and partId != ''">
+            AND p.part_id = #{partId}
+        </if>
+    </select>
+
     <select id="getPartById" resultMap="partResultMap">
         SELECT * FROM parts p WHERE 1=1
         <if test="partId != null and partId != ''">
