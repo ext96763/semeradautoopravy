@@ -37,7 +37,11 @@ public interface MainRepository {
 
     void deleteUser(Integer id);
 
-    List<Car> getUserCarsById(@Param("carUserId") Integer id);
+    List<Car> getUserCarsById(@Param("userId") Integer id);
+
+    List<Repair> getUserRepairsById(@Param("userId") Integer id);
+
+    List<Repair> getUserPartsById(@Param("userId") Integer id);
 
     //------------------------------------------------------------------------------------------------------------------
 

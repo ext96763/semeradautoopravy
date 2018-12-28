@@ -27,6 +27,7 @@ export class GlobalErrorHandler implements ErrorHandler {
 
     } else {
       console.log('An error occurred: ', error.message);
+      console.log('If its OUTLETS->missing value in data: ', error.body);
     }
 
     // router.navigate(['/']);

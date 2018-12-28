@@ -5,6 +5,9 @@ import { UserModel } from 'src/app/models/UserModel';
 import { HttpClientModule, HttpClient, HttpRequest, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { stringify } from 'querystring';
+import { RepairList } from 'src/app/models/RepairList';
+import { SparePartModel } from 'src/app/models/SparePartModel';
+import { CarList } from 'src/app/models/CarList';
 
 const APIEndpoint = environment.APIEndpoint;
 
@@ -18,6 +21,9 @@ export class UserService {
   USER_BY_ID = APIEndpoint + '/user?id=';
   USER = APIEndpoint + '/user';
   USER_REMOVE = APIEndpoint + '/user?id=';
+  USER_REPAIRS = APIEndpoint + '/userRepairs?id=';
+  USER_PARTS = APIEndpoint + '/userParts?id=';
+  USER_CARS = APIEndpoint + '/userCars?id=';
 
   headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
@@ -58,4 +64,23 @@ export class UserService {
     console.log('Updating user from Service to DB, ID: ' + this.USER + ' data:' + JSON.stringify(user));
     return this.http.put(this.USER, user);
   }
+
+  // GET user repairs by ID
+  getUserRepairs(id): Observable<RepairList> {
+    console.log('User repairs by ID called from API: ' + this.USER_REPAIRS + id);
+    return this.http.get<RepairList>(this.USER_REPAIRS + id);
+  }
+
+  // GET user repairs by ID
+  getUserParts(id): Observable<SparePartModel> {
+    console.log('User parts by ID called from API: ' + this.USER_PARTS + id);
+    return this.http.get<SparePartModel>(this.USER_PARTS + id);
+  }
+
+  // GET user repairs by ID
+  getUserCars(id): Observable<CarList> {
+    console.log('User cars by ID called from API: ' + this.USER_CARS + id);
+    return this.http.get<CarList>(this.USER_CARS + id);
+  }
+
 }

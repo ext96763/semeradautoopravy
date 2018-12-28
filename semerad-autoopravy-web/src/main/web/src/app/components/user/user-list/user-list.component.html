@@ -31,9 +31,9 @@
             <span>
               <ul>
                 <li><a [routerLink]="[ '/userDetail', item.userId ]"><i class="fa fa-user fa-2x" aria-hidden="true" title="Detail uzivatele"></i></a></li>
-                <li><a [routerLink]="[ '/carDetail', item.carId ]"><i class="fa fa-car fa-2x" aria-hidden="true" title="Detail auta"></i></a></li>
-                <li><a [routerLink]="[ '/repairs', item.carId ]"><i class="fa fa-medkit fa-2x" aria-hidden="true" title="Opravy delane na aute"></i></a></li>
-                <li><a [routerLink]="[ '/parts', item.carId ]"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro dane auto"></i></a></li>
+                <li><a [routerLink]="[ '/userCars', item.userId ]"><i class="fa fa-car fa-2x" aria-hidden="true" title="Detail auta"></i></a></li>
+                <li><a [routerLink]="[ '/userRepairs', item.userId ]"><i class="fa fa-medkit fa-2x" aria-hidden="true" title="Veskere opravy klienta"></i></a></li>
+                <li><a [routerLink]="[ '/userParts', item.userId ]"><i class="fa fa-cog fa-2x" aria-hidden="true" title="Nahradni dily zakoupene pro daneho uzivatele"></i></a></li>
               </ul>
             </span>
           </div>

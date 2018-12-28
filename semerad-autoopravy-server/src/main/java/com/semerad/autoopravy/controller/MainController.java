@@ -273,6 +273,42 @@ public class MainController implements ErrorController {
         return mainRepository.getUserCarsById(id);
     }
 
+    /**
+     * Find all reapirs for particular user
+     * @param id of user
+     * @return all repairs for current user
+     */
+    @ApiOperation(value = "Find all reapirs for particular user", notes = "find all repairs of user", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/userRepairs", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Repair> getUserRepairs(@RequestParam(value = "id", required = true) Integer id) {
+        return mainRepository.getUserRepairsById(id);
+    }
+
+    /**
+     * Find all parts for particular user
+     * @param id userId
+     * @return all parts of user
+     */
+    @ApiOperation(value = "Find all parts for particular user", notes = "find all parts of user", produces = "application/json")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Success", response = MainController.class),
+            @ApiResponse(code = 400, message = "Bad Request"),
+            @ApiResponse(code = 404, message = "Not Found"),
+            @ApiResponse(code = 500, message = "Failure")})
+    @CrossOrigin("http://localhost:4200")
+    @RequestMapping(value = "/userParts", method = RequestMethod.GET, produces = "application/json")
+    public @ResponseBody
+    List<Repair> getUserParts(@RequestParam(value = "id", required = true) Integer id) {
+        return mainRepository.getUserPartsById(id);
+    }
+
 
     //----------------------------------------CAR endpoints-------------------------------------------------------------
 

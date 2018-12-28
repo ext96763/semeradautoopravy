@@ -147,7 +147,7 @@
     <select id="getUserCarsById" resultMap="carResultMap">
         SELECT *
         FROM cars c WHERE 1 = 1
-        AND c.car_user_id = #{carUserId};
+        AND c.car_user_id = #{userId};
     </select>
 
     <insert id="insertCar" parameterType="com.semerad.autoopravy.model.Car"
@@ -226,6 +226,13 @@
         AND r.car_id = #{carId}
     </select>
 
+    <select id="getUserRepairsById" resultMap="repairResultMap">
+        SELECT *
+        FROM repairs r
+        WHERE 1 = 1
+        AND r.repair_user_id = #{userId}
+    </select>
+
 
     <!--///////////////////////////////////////Part detail///////////////////////////////////////////////////////////-->
 
@@ -265,6 +272,13 @@
         FROM parts p
         WHERE 1 = 1
         AND car_id = #{carId}
+    </select>
+
+    <select id="getUserPartsById" resultMap="partResultMap">
+        SELECT *
+        FROM parts p
+        WHERE 1 = 1
+        AND part_user_id = #{userId}
     </select>
 
 
