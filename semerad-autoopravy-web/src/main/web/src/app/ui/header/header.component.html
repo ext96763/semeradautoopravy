@@ -3,11 +3,21 @@
     <a class="navbar-brand" [routerLink]="[ '/info' ]" routerLinkActive="active">CRM</a>
     <div class="navbar-expand mr-auto">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" [routerLink]="[ '/tasks' ]">Ukoly</a>
-        <a class="nav-item nav-link" [routerLink]="[ '/customers' ]">Uzivatele</a>
-        <a class="nav-item nav-link" [routerLink]="[ '/cars' ]">Auta</a>
-        <a class="nav-item nav-link" [routerLink]="[ '/repairs' ]">Opravy</a>
-        <a class="nav-item nav-link" [routerLink]="[ '/parts' ]">Dily</a>
+        <li class="nav-item">
+          <a class="nav-link active" id="tasks" [routerLink]="[ '/tasks' ]">Ukoly</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="[ '/customers' ]">Uzivatele</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="[ '/cars' ]">Auta</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="[ '/repairs' ]">Opravy</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" [routerLink]="[ '/parts' ]">Dily</a>
+        </li>
       </div>
     </div>
     <div class="navbar-expand ml-auto navbar-nav">
@@ -19,12 +29,13 @@
           <div class="col-md-6">
             <div id="custom-search-input">
               <div class="input-group col-md-12">
-                <input class="form-control mr-sm-2" type="search" placeholder="Podle titulu karty" aria-label="Search" id="search">
-                </div>
+                <input class="form-control mr-sm-2" type="search" placeholder="Podle titulu karty" aria-label="Search"
+                  id="search">
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   </nav>
 </div>

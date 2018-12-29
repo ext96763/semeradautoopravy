@@ -29,10 +29,13 @@ import { PartDetailComponent } from './components/part/part-detail/part-detail.c
 import { PartEditComponent } from './components/part/part-edit/part-edit.component';
 import { PartListComponent } from './components/part/part-list/part-list.component';
 
+import { TaskListComponent } from './components/task/task-list/task-list.component';
+import { InfoComponent } from './components/info/info/info.component';
+
 const routes: Routes = [
-  { path: 'info', component: CarListComponent },
-  { path: 'tasks', component: CarListComponent },
-  
+  { path: 'info', component: InfoComponent },
+  { path: 'tasks', component: TaskListComponent },
+
   { path: 'customers', component: UserListComponent },
   { path: 'cars', component: CarListComponent },
   { path: 'repairs', component: RepairListComponent },
@@ -65,8 +68,8 @@ const routes: Routes = [
 
   { path: 'repairs/:id', component: CarDetailComponent },
   { path: 'parts/:id', component: CarDetailComponent },
-  { path: '#/', component: CarListComponent },
-  { path: '', component: CarListComponent }
+  { path: '#/', component: InfoComponent },
+  { path: '', component: InfoComponent }
 ];
 
 @NgModule({

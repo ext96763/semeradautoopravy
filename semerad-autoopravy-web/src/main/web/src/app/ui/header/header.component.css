@@ -8,3 +8,17 @@
     padding: 5px;
     min-width: 200px;
 }
+
+ .nav-link:focus, .nav-link:hover {
+    text-decoration: none;
+    border-bottom: 4px solid black;
+}
+
+.nav-link:focus, .nav-link:hover {
+    text-decoration: none;
+    border-bottom: 4px solid black;
+}
+.navbar-brand:focus, .navbar-brand:hover {
+    text-decoration: none;
+    border-bottom: 4px solid black;
+}
