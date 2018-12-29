@@ -3,6 +3,10 @@
     top: 0px;
     width: 100%;
     z-index: 10000;
+    
+}
+.navbar{
+    background-color: rgba(0,0,0,.87);
 }
 #custom-search-input{
     padding: 5px;
@@ -16,9 +20,9 @@
 
 .nav-link:focus, .nav-link:hover {
     text-decoration: none;
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid white;
 }
 .navbar-brand:focus, .navbar-brand:hover {
     text-decoration: none;
-    border-bottom: 4px solid black;
+    border-bottom: 4px solid white;
 }
