@@ -5,36 +5,41 @@
   <form [formGroup]="editRepairForm" (ngSubmit)="onSubmit()">
 
     <div class="col-xs-6 form-group">
-        <label for="repairs">Popis opravy</label>
-        <input type="text" formControlName="repairs" placeholder="Popsat opravu" name="repairs" class="form-control" id="repairs">
-      </div>
-
-    <div class="col-xs-6 form-group">
-      <label for="forename">ID auta ke kteremu oprava patri</label>
-      <input type="text" formControlName="repairUserId" placeholder="ID uzivatele" name="repairUserId" class="form-control" id="repairUserId">
+      <label for="repairs"><b>Popis opravy</b></label>
+      <input type="text" formControlName="repairs" placeholder="Popsat opravu" name="repairs" class="form-control" id="repairs">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="forename">ID uzivatele kte kteremu patri auto</label>
-      <input type="text" formControlName="carId" placeholder="ID auta" name="carId" class="form-control" id="carId">
+      <label for="userID"><b>ID uzivatele ke kteremu oprava patri</b></label>
+      <input type="number" formControlName="repairUserId" placeholder="ID uzivatele" name="repairUserId" class="form-control"
+        id="repairUserId">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="startD">Datum zacatku opravy</label>
-      <input type="date" formControlName="startOfRepair" placeholder="Datum opravy" name="startOfRepair" class="form-control" id="startOfRepair">
+      <label for="carID"><b>ID auta ktere patri uzivateli</b></label>
+      <input type="number" formControlName="carId" placeholder="ID auta" name="carId" class="form-control" id="carId">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="endD">Datum konce opravy</label>
-      <input type="date" formControlName="endOfRepair" placeholder="Datum konce opravy" name="endOfRepair" class="form-control" id="endOfRepair">
+      <label for="startD"><b>Datum zacatku opravy</b></label>
+      <input type="date" formControlName="startOfRepair" placeholder="Datum opravy" name="startOfRepair" class="form-control"
+        id="startOfRepair">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="endD"><b>Datum konce opravy</b></label>
+      <input type="date" formControlName="endOfRepair" placeholder="Datum konce opravy" name="endOfRepair" class="form-control"
+        id="endOfRepair">
     </div>
 
     <div class="form-group form-check">
       <label class="form-check-label">
-        <input class="form-check-input" formControlName="techCheck" type="checkbox" style="width:15px" style="height:15px" name="techCheck" class="form-control" id="techCheck"> Auto ma platnou technickou
+        <input class="form-check-input" formControlName="techCheck" type="checkbox" style="width:15px" style="height:15px"
+          name="techCheck" class="form-control" id="techCheck"><b>Auto ma platnou technickou</b>
       </label>
       <label class="form-check-label">
-        <input class="form-check-input" formControlName="oil" type="checkbox" style="width:15px" style="height:15px" name="oil" class="form-control" id="oil"> Nutna vymena oleje
+        <input class="form-check-input" formControlName="oil" type="checkbox" style="width:15px" style="height:15px"
+          name="oil" class="form-control" id="oil"><b>Nutna vymena oleje</b>
       </label>
     </div>
 

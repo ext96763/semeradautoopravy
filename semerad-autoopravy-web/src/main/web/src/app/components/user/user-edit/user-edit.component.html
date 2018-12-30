@@ -6,48 +6,56 @@
   <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
 
     <div class="col-xs-6 form-group">
-        <label for="name">Jmeno</label>
-        <input type="text" formControlName="userName" placeholder="Jmeno klienta" name="userName" class="form-control" id="userName">
-      </div>
-
-    <div class="col-xs-6 form-group">
-      <label for="forename">Prijmeni</label>
-      <input type="text" formControlName="userForeName" placeholder="Prijmeni" name="userForeName" class="form-control" id="userForeName">
+      <label for="name"><b>Jmeno</b></label>
+      <input type="text" formControlName="userName" placeholder="Jmeno klienta" name="userName" class="form-control" id="userName">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="email">Email</label>
-      <input type="email" formControlName="userEmail" placeholder="Email klienta" name="userEmail" class="form-control" id="userEmail">
+      <label for="forename"><b>Prijmeni</b></label>
+      <input type="text" formControlName="userForeName" placeholder="Prijmeni" name="userForeName" class="form-control"
+        id="userForeName">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="">Popis klienta</label>
-      <input type="text" formControlName="userDetail" placeholder="Popsat klienta" name="userDetail" class="form-control" id="userDetail">
+      <label for="email"><b>Email</b></label>
+      <input type="email" formControlName="userEmail" placeholder="Email klienta" name="userEmail" class="form-control"
+        id="userEmail">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="rc">Rodne cislo</label>
-      <input type="number" formControlName="userRc" placeholder="Rodne cislo bez lomitka" name="userRc" class="form-control" id="userRc">
+      <label for=""><b>Popis klienta</b></label>
+      <input type="text" formControlName="userDetail" placeholder="Popsat klienta" name="userDetail" class="form-control"
+        id="userDetail">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="telnum">Telefonni cislo</label>
-      <input type="number" formControlName="userPhone" placeholder="Telefonni cislo bez prefixu" name="userPhone" class="form-control" id="userPhone">
+      <label for="rc"><b>Rodne cislo</b></label>
+      <input type="number" formControlName="userRc" placeholder="Rodne cislo bez lomitka" name="userRc" class="form-control"
+        id="userRc">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="startD">Datum zacatku obsluhy</label>
-      <input type="date" formControlName="startDate" placeholder="Datum zlozeni uzivatele" name="startDate" class="form-control" id="startDate">
+      <label for="telnum"><b>Telefonni cislo</b></label>
+      <input type="number" formControlName="userPhone" placeholder="Telefonni cislo bez prefixu" name="userPhone" class="form-control"
+        id="userPhone">
     </div>
 
     <div class="col-xs-6 form-group">
-      <label for="endD">Datum konce obsluhy</label>
-      <input type="date" formControlName="endDate" placeholder="Datum smazani uzivatele z servisu" name="endDate" class="form-control" id="endDate">
+      <label for="startD"><b>Datum zacatku obsluhy</b></label>
+      <input type="date" formControlName="startDate" placeholder="Datum zlozeni uzivatele" name="startDate" class="form-control"
+        id="startDate">
+    </div>
+
+    <div class="col-xs-6 form-group">
+      <label for="endD"><b>Datum konce obsluhy</b></label>
+      <input type="date" formControlName="endDate" placeholder="Datum smazani uzivatele z servisu" name="endDate" class="form-control"
+        id="endDate">
     </div>
 
     <div class="form-group form-check">
       <label class="form-check-label">
-        <input class="form-check-input" formControlName="exists" type="checkbox" style="width:15px" style="height:15px" name="exists" class="form-control" id="exists"> Uzivatel stale existuje/je aktivni
+        <input class="form-check-input" formControlName="exists" type="checkbox" style="width:15px" style="height:15px"
+          name="exists" class="form-control" id="exists"><b>Uzivatel stale existuje/je aktivni</b>
       </label>
     </div>
 
